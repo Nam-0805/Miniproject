@@ -430,102 +430,108 @@
   </section>
 
   <!--Everything you need in one place-->
-  <section class="py-28 px-4 sm:px-6 lg:px-8 max-w-[1480px] mx-auto overflow-visible">
+  <section class="py-28 px-4 sm:px-6 lg:px-8 max-w-[1480px] mx-auto overflow-x-clip">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center">
   
-    <!-- ฝั่งซ้าย: การ์ด UI แบบซ้อนเลเยอร์ และรูปทรงตกแต่ง -->
-    <div class="lg:col-span-6 relative flex justify-center items-center py-20">
-      <div class="relative w-full max-w-[550.63px] mx-auto">
+    <!-- ฝั่งซ้าย: การ์ด UI แบบซ้อนเลเยอร์ และรูปทรงตกแต่ง-->
+    <div class="lg:col-span-6 relative flex justify-center items-center py-6 sm:py-16 lg:py-20 overflow-visible">
+      
+      <!-- กรอบคุมความสูงบนมือถือไม่ให้เหลือพื้นที่ว่างเกินจริงหลังการย่อ Scale -->
+      <div class="relative w-[335px] h-[420px] sm:w-[460px] sm:h-[580px] lg:w-[550.63px] lg:h-auto flex justify-center items-center">
+        
+        <!-- กล่องต้นฉบับขนาด 550.63px ที่ถูกย่อสเกลบนมือถือ (0.48 เท่า) และคืนค่า 100% บนจอใหญ่ -->
+        <div class="relative w-[550.63px] shrink-0 origin-center scale-[0.48] sm:scale-[0.72] lg:scale-100">
 
-        <!-- รูปทรงตกแต่ง: สีเหลืองมุมซ้ายบน -->
-        <img src="assets/Rectangle 738.png" alt="Decorative Yellow Shape" class="absolute -top-[70px] -left-[85px] w-[370px] h-[370px] object-contain -z-10 pointer-events-none select-none">
+          <!-- รูปทรงตกแต่ง: สีเหลืองมุมซ้ายบน -->
+          <img src="assets/Rectangle 738.png" alt="Decorative Yellow Shape" class="absolute -top-[70px] -left-[85px] w-[370px] h-[370px] object-contain -z-10 pointer-events-none select-none">
 
-        <!-- รูปทรงตกแต่ง: วงกลมสีฟ้ามุมขวาล่าง-->
-        <div class="absolute top-[155px] -right-[105px] w-[560px] h-[560px] bg-[rgba(55,224,245,1)] rounded-full -z-10"></div>
+          <!-- รูปทรงตกแต่ง: วงกลมสีฟ้ามุมขวาล่าง -->
+          <div class="absolute top-[155px] -right-[105px] w-[560px] h-[560px] bg-[rgba(55,224,245,1)] rounded-full -z-10"></div>
 
-        <!-- การ์ดโครงร่างหลักตรงกลาง -->
-        <div class="w-full h-[641.8px] bg-[rgba(255,255,255,1)] rounded-[14.9px] px-8 py-12 shadow-[0px_21.11px_50px_0px_rgba(0,0,0,0.08)] relative z-10 flex flex-col justify-center items-center gap-7">
-          
-          <!-- กล่องเส้นปะที่ 1 (ด้านบน) -->
-          <div class="w-full max-w-[442.15px] h-[220.87px] border-[0.87px] border-dashed border-[rgba(179,186,197,1)] rounded-[6.94px] px-8 flex flex-col justify-center items-center">
-            <div class="w-full max-w-[342.72px] space-y-5">
-              <!-- แถบที่ 1: เต็มความกว้าง -->
-              <div class="w-full h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
-              <!-- แถบที่ 2: ซ้ายยาว ขวาสั้น -->
-              <div class="grid grid-cols-12 gap-5">
-                <div class="col-span-8 h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
-                <div class="col-span-4 h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+          <!-- การ์ดโครงร่างหลักตรงกลาง -->
+          <div class="w-full h-[641.8px] bg-[rgba(255,255,255,1)] rounded-[14.9px] px-8 py-12 shadow-[0px_21.11px_50px_0px_rgba(0,0,0,0.08)] relative z-10 flex flex-col justify-center items-center gap-7">
+            
+            <!-- กล่องเส้นปะที่ 1 (ด้านบน) -->
+            <div class="w-full max-w-[442.15px] h-[220.87px] border-[0.87px] border-dashed border-[rgba(179,186,197,1)] rounded-[6.94px] px-8 flex flex-col justify-center items-center">
+              <div class="w-full max-w-[342.72px] space-y-5">
+                <!-- แถบที่ 1: เต็มความกว้าง -->
+                <div class="w-full h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+                <!-- แถบที่ 2: ซ้ายยาว ขวาสั้น -->
+                <div class="grid grid-cols-12 gap-5">
+                  <div class="col-span-8 h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+                  <div class="col-span-4 h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+                </div>
+                <!-- แถบที่ 3: เต็มความกว้าง -->
+                <div class="w-full h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
               </div>
-              <!-- แถบที่ 3: เต็มความกว้าง (แท่งยาว) -->
-              <div class="w-full h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+            </div>
+
+            <!-- กล่องเส้นปะที่ 2 (ด้านล่าง) -->
+            <div class="w-full max-w-[442.15px] h-[220.87px] border-[0.87px] border-dashed border-[rgba(179,186,197,1)] rounded-[6.94px] px-8 flex flex-col justify-center items-center">
+              <div class="w-full max-w-[342.72px] space-y-5">
+                <!-- แถบที่ 1: เต็มความกว้าง -->
+                <div class="w-full h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+                <!-- แถบที่ 2: แบ่ง 3 ชิ้น (ชิ้น 1 และ 2 กว้าง 119.22px) -->
+                <div class="flex items-center justify-between gap-4">
+                  <div class="w-[119.22px] h-[25.63px] bg-[rgba(229,232,238,1)] shrink-0"></div>
+                  <div class="w-[119.22px] h-[25.63px] bg-[rgba(229,232,238,1)] shrink-0"></div>
+                  <div class="flex-1 h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+                </div>
+                <!-- แถบที่ 3: เต็มความกว้าง -->
+                <div class="w-full h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- การ์ดลอยใบที่ 1: รายได้เดือนนี้ (มุมขวาบน) -->
+          <div class="absolute -top-[80px] -right-[70px] w-[316.86px] h-[208.17px] bg-[rgba(255,255,255,1)] rounded-[20.01px] px-8 shadow-[0px_29.73px_68.22px_0px_rgba(0,0,0,0.06)] flex flex-col justify-center z-20">
+            <p class="font-heading font-normal text-[14px] leading-[24px] tracking-[0px] text-[rgba(90,113,132,1)] mb-2">Income This Month</p>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="font-heading font-bold text-[30px] leading-[30px] tracking-[0px] text-[rgba(51,51,51,1)]">$ 50.36</span>
+              <span class="inline-flex items-center gap-1 text-[rgba(30,202,171,1)]">
+                <svg class="w-[10px] h-[12px] -rotate-[60deg] shrink-0" fill="none" viewBox="0 0 10 12" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M1 6h8m0 0L5.5 2.5M9 6L5.5 9.5" />
+                </svg>
+                <span class="font-heading font-normal text-[12px] leading-[10px] tracking-[0px]">12%</span>
+              </span>
+            </div>
+            <img src="assets/icon-graph.png" alt="Income Graph" class="w-[236.86px] h-[35px] object-contain">
+          </div>
+
+          <!-- การ์ดลอยใบที่ 2: ยอดถูกใจ 398K (ตรงกลางซ้าย) -->
+          <div class="absolute top-[148px] -left-[75px] w-[383.22px] h-[215.18px] bg-[rgba(255,255,255,1)] rounded-[17.93px] px-9 shadow-[0px_26.65px_61.13px_0px_rgba(0,0,0,0.06)] flex items-center gap-7 z-20">
+            <div class="w-[107.59px] h-[107.59px] rounded-full bg-[rgba(21,101,216,0.1)] flex items-center justify-center shrink-0">
+              <img src="assets/Icon-like.png" alt="Total Likes" class="w-[31.35px] h-[36.05px] object-contain">
+            </div>
+            <div>
+              <p class="font-heading font-bold text-[37.62px] leading-[50.16px] tracking-[0.31px] text-[rgba(51,51,51,1)]">398K</p>
+              <p class="font-heading font-normal text-[28.21px] leading-[50.16px] tracking-[0px] text-[rgba(90,113,132,1)]">Total Likes</p>
             </div>
           </div>
 
-          <!-- กล่องเส้นปะที่ 2 (ด้านล่าง) -->
-          <div class="w-full max-w-[442.15px] h-[220.87px] border-[0.87px] border-dashed border-[rgba(179,186,197,1)] rounded-[6.94px] px-8 flex flex-col justify-center items-center">
-            <div class="w-full max-w-[342.72px] space-y-5">
-              <!-- แถบที่ 1: เต็มความกว้าง -->
-              <div class="w-full h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
-              <!-- แถบที่ 2: แบ่ง 3 ชิ้น (ชิ้น 1 และ 2 กว้าง 119.22px) -->
-              <div class="flex items-center justify-between gap-4">
-                <div class="w-[119.22px] h-[25.63px] bg-[rgba(229,232,238,1)] shrink-0"></div>
-                <div class="w-[119.22px] h-[25.63px] bg-[rgba(229,232,238,1)] shrink-0"></div>
-                <div class="flex-1 h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
-              </div>
-              <!-- แถบที่ 3: เต็มความกว้าง -->
-              <div class="w-full h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+          <!-- การ์ดลอยใบที่ 3: นัดหมายวันเสาร์ 20:00 น. (มุมขวาล่าง) -->
+          <div class="absolute -bottom-[105px] -right-[125px] w-[385px] h-[278.19px] bg-[rgba(255,255,255,1)] rounded-[14.9px] px-7 shadow-[0px_21.11px_50px_0px_rgba(0,0,0,0.08)] flex flex-col justify-center text-center z-20">
+            <div class="flex justify-center items-center gap-3.5 mb-5">
+              <span class="w-[47.19px] h-[47.19px] rounded-full bg-[rgba(196,196,196,1)] inline-block shrink-0"></span>
+              <span class="w-[47.19px] h-[47.19px] rounded-full bg-[rgba(196,196,196,1)] inline-block shrink-0"></span>
+              <span class="w-[47.19px] h-[47.19px] rounded-full bg-[rgba(196,196,196,1)] inline-block shrink-0"></span>
+              <span class="w-[47.19px] h-[47.19px] rounded-full bg-[rgba(196,196,196,1)] inline-block shrink-0"></span>
+              <span class="w-[47.19px] h-[47.19px] rounded-full bg-[rgba(196,196,196,1)] inline-block shrink-0"></span>
+            </div>
+            <h4 class="font-heading font-bold text-[24.84px] leading-[29.81px] tracking-[0.25px] text-center text-[rgba(24,59,86,1)] mb-1.5">Saturday, 8pm</h4>
+            <p class="font-heading font-normal text-[17.39px] leading-[29.81px] tracking-[0px] text-center text-[rgba(90,113,132,1)] mb-6">Time to active in meeting</p>
+            <div class="flex justify-center items-center gap-3">
+              <button type="button" class="inline-flex items-center justify-center w-[161.45px] h-[47.19px] rounded-[9.94px] bg-[rgba(106,153,255,1)] hover:bg-[#5285f5] font-heading font-medium text-[17.39px] leading-[24.84px] tracking-[0px] text-center text-[rgba(255,255,255,1)] transition-colors shrink-0">
+                Schedule Post
+              </button>
+              <button type="button" class="inline-flex items-center justify-center w-[149.03px] h-[47.19px] rounded-[9.94px] bg-[rgba(106,153,255,0.1)] hover:bg-[rgba(106,153,255,0.2)] font-heading font-medium text-[17.39px] leading-[24.84px] tracking-[0px] text-center text-[rgba(106,153,255,1)] transition-colors shrink-0">
+                See Insight
+              </button>
             </div>
           </div>
 
         </div>
-
-        <!-- การ์ดลอยใบที่ 1: รายได้เดือนนี้ (มุมขวาบน) -->
-        <div class="absolute -top-[80px] -right-[70px] w-[316.86px] h-[208.17px] bg-[rgba(255,255,255,1)] rounded-[20.01px] px-8 shadow-[0px_29.73px_68.22px_0px_rgba(0,0,0,0.06)] flex flex-col justify-center z-20">
-          <p class="font-heading font-normal text-[14px] leading-[24px] tracking-[0px] text-[rgba(90,113,132,1)] mb-2">Income This Month</p>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="font-heading font-bold text-[30px] leading-[30px] tracking-[0px] text-[rgba(51,51,51,1)]">$ 50.36</span>
-            <span class="inline-flex items-center gap-1 text-[rgba(30,202,171,1)]">
-              <svg class="w-[10px] h-[12px] -rotate-[60deg] shrink-0" fill="none" viewBox="0 0 10 12" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M1 6h8m0 0L5.5 2.5M9 6L5.5 9.5" />
-              </svg>
-              <span class="font-heading font-normal text-[12px] leading-[10px] tracking-[0px]">12%</span>
-            </span>
-          </div>
-          <img src="assets/icon-graph.png" alt="Income Graph" class="w-[236.86px] h-[35px] object-contain">
-        </div>
-
-        <!-- การ์ดลอยใบที่ 2: ยอดถูกใจ 398K (ตรงกลางซ้าย) -->
-        <div class="absolute top-[148px] -left-[75px] w-[383.22px] h-[215.18px] bg-[rgba(255,255,255,1)] rounded-[17.93px] px-9 shadow-[0px_26.65px_61.13px_0px_rgba(0,0,0,0.06)] flex items-center gap-7 z-20">
-          <div class="w-[107.59px] h-[107.59px] rounded-full bg-[rgba(21,101,216,0.1)] flex items-center justify-center shrink-0">
-            <img src="assets/Icon-like.png" alt="Total Likes" class="w-[31.35px] h-[36.05px] object-contain">
-          </div>
-          <div>
-            <p class="font-heading font-bold text-[37.62px] leading-[50.16px] tracking-[0.31px] text-[rgba(51,51,51,1)]">398K</p>
-            <p class="font-heading font-normal text-[28.21px] leading-[50.16px] tracking-[0px] text-[rgba(90,113,132,1)]">Total Likes</p>
-          </div>
-        </div>
-
-        <!-- การ์ดลอยใบที่ 3: นัดหมายวันเสาร์ 20:00 น. (มุมขวาล่าง) -->
-        <div class="absolute -bottom-[105px] -right-[125px] w-[385px] h-[278.19px] bg-[rgba(255,255,255,1)] rounded-[14.9px] px-7 shadow-[0px_21.11px_50px_0px_rgba(0,0,0,0.08)] flex flex-col justify-center text-center z-20">
-          <div class="flex justify-center items-center gap-3.5 mb-5">
-            <span class="w-[47.19px] h-[47.19px] rounded-full bg-[rgba(196,196,196,1)] inline-block shrink-0"></span>
-            <span class="w-[47.19px] h-[47.19px] rounded-full bg-[rgba(196,196,196,1)] inline-block shrink-0"></span>
-            <span class="w-[47.19px] h-[47.19px] rounded-full bg-[rgba(196,196,196,1)] inline-block shrink-0"></span>
-            <span class="w-[47.19px] h-[47.19px] rounded-full bg-[rgba(196,196,196,1)] inline-block shrink-0"></span>
-            <span class="w-[47.19px] h-[47.19px] rounded-full bg-[rgba(196,196,196,1)] inline-block shrink-0"></span>
-          </div>
-          <h4 class="font-heading font-bold text-[24.84px] leading-[29.81px] tracking-[0.25px] text-center text-[rgba(24,59,86,1)] mb-1.5">Saturday, 8pm</h4>
-          <p class="font-heading font-normal text-[17.39px] leading-[29.81px] tracking-[0px] text-center text-[rgba(90,113,132,1)] mb-6">Time to active in meeting</p>
-          <div class="flex justify-center items-center gap-3">
-            <button type="button" class="inline-flex items-center justify-center w-[161.45px] h-[47.19px] rounded-[9.94px] bg-[rgba(106,153,255,1)] hover:bg-[#5285f5] font-heading font-medium text-[17.39px] leading-[24.84px] tracking-[0px] text-center text-[rgba(255,255,255,1)] transition-colors shrink-0">
-              Schedule Post
-            </button>
-            <button type="button" class="inline-flex items-center justify-center w-[149.03px] h-[47.19px] rounded-[9.94px] bg-[rgba(106,153,255,0.1)] hover:bg-[rgba(106,153,255,0.2)] font-heading font-medium text-[17.39px] leading-[24.84px] tracking-[0px] text-center text-[rgba(106,153,255,1)] transition-colors shrink-0">
-              See Insight
-            </button>
-          </div>
-        </div>
-
       </div>
     </div>
 
