@@ -7,7 +7,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Jost:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Jost:wght@500;600;700&family=Roboto+Condensed:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
   <!-- Tailwind CSS (Play CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -17,12 +17,17 @@
           fontFamily: {
             sans: ['"Circular Std"', '"DM Sans"', 'sans-serif'],
             heading: ['"Circular Std"', 'Jost', 'sans-serif'],
+            condensed: ['"Roboto Condensed"', 'sans-serif'], // โลโก้ HARRISON
+            slab: ['"Playfair Display"', 'serif'],           // โลโก้ BARBECUE
           },
           colors: {
             primary: '#FF6B3D',
             secondary: '#FFD873',
             accent: '#3ED6F0',
             dark: '#2D2D2D',
+            'brand-dark': '#FF4F11',   // ส้มเข้ม
+            'brand-light': '#FF7342',  // ส้มอ่อน
+            'logo-gray': '#8585A5',    // สีโลโก้พาร์ทเนอร์
           },
         },
       },
@@ -33,6 +38,296 @@
 <body>
 
   <!-- ===================== Section 1  hero===================== -->
+  <section id="home" class="relative overflow-hidden bg-gradient-to-b from-[#FFEDE6] via-[#FFF6F2] to-white">
+
+    <!-- ---------- Navbar ---------- -->
+    <header class="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-20">
+      <nav class="flex h-20 items-center justify-between lg:h-28">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2">
+          <svg class="h-8 w-[52px] lg:h-10 lg:w-[65px]" viewBox="0 0 260 160" fill="none" stroke-linecap="round" aria-hidden="true">
+            <!-- ลูกบอล (ส้มอ่อน) -->
+            <circle cx="135" cy="78" r="76" class="fill-brand-light"/>
+            <!-- แถบบน: เส้นยาวส้มอ่อน + ช่วงกลางส้มเข้ม -->
+            <line x1="28" y1="88" x2="240" y2="34" class="stroke-brand-light" stroke-width="26"/>
+            <line x1="52" y1="82" x2="210" y2="42" class="stroke-brand-dark" stroke-width="26"/>
+            <!-- แถบล่าง: ส้มเข้มทั้งเส้น -->
+            <line x1="48" y1="128" x2="236" y2="84" class="stroke-brand-dark" stroke-width="26"/>
+          </svg>
+          <span class="font-heading text-2xl font-bold text-dark lg:text-3xl">Hrr<span class="text-brand-light">d</span></span>
+        </a>
+
+        <!-- Menu (desktop) -->
+        <ul class="hidden items-center gap-10 text-sm text-dark md:flex lg:gap-14 lg:text-base">
+          <li><a href="#home" class="text-primary underline underline-offset-4">Home</a></li>
+          <li><a href="#feature" class="transition hover:text-primary">Feature</a></li>
+          <li><a href="#pricing" class="transition hover:text-primary">Pricing</a></li>
+          <li><a href="#testimonial" class="transition hover:text-primary">Testimonial</a></li>
+        </ul>
+
+        <!-- Buttons (desktop) -->
+        <div class="hidden items-center gap-4 md:flex">
+          <a href="#" class="rounded bg-secondary px-6 py-3 text-sm font-medium text-dark transition hover:brightness-95 lg:px-8 lg:py-4">Register</a>
+          <a href="#" class="rounded bg-primary px-6 py-3 text-sm font-medium text-white transition hover:brightness-110 lg:px-8 lg:py-4">Sign In</a>
+        </div>
+
+        <!-- Hamburger (mobile) -->
+        <button id="menu-btn" class="flex h-10 w-10 items-center justify-center rounded text-dark md:hidden" aria-label="Open menu" aria-expanded="false">
+          <!-- ไอคอนเมนูแบบ 4 ช่อง (ตามดีไซน์มือถือ) -->
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <rect x="2" y="2" width="9" height="9" rx="2.5"/><rect x="13" y="2" width="9" height="9" rx="2.5"/>
+            <rect x="2" y="13" width="9" height="9" rx="2.5"/><rect x="13" y="13" width="9" height="9" rx="2.5"/>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Menu (mobile) -->
+      <div id="mobile-menu" class="hidden rounded-xl bg-white p-6 shadow-lg md:hidden">
+        <ul class="flex flex-col gap-4 text-dark">
+          <li><a href="#home" class="text-primary">Home</a></li>
+          <li><a href="#feature">Feature</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#testimonial">Testimonial</a></li>
+        </ul>
+        <div class="mt-6 grid grid-cols-2 gap-3">
+          <a href="#" class="rounded bg-secondary py-3 text-center text-sm font-medium text-dark">Register</a>
+          <a href="#" class="rounded bg-primary py-3 text-center text-sm font-medium text-white">Sign In</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ---------- Hero content ---------- -->
+    <!-- มือถือ: dashboard อยู่บน → ข้อความ → ปุ่ม → โลโก้ (ชิดซ้าย) / เดสก์ท็อป: 2 คอลัมน์ -->
+    <div class="mx-auto grid max-w-[1440px] items-center gap-12 px-6 pb-16 pt-6 md:px-10 lg:grid-cols-2 lg:gap-10 lg:px-20 lg:pb-32 lg:pt-16">
+
+      <!-- Left: text -->
+      <div class="text-left">
+        <h1 class="font-heading text-[30px] font-bold leading-[1.45] text-dark md:text-6xl md:leading-[1.2] lg:text-[72px]">
+          Best Platform <br>for Monitor <br>Work Flow
+        </h1>
+        <a href="#" class="mt-9 inline-block rounded-md bg-primary px-[42px] py-5 text-base font-medium text-white shadow-lg shadow-primary/30 transition hover:brightness-110 lg:mt-12 lg:rounded lg:px-8 lg:py-4 lg:text-sm">
+          Get 15 Day Trial
+        </a>
+
+        <!-- Partner logos -->
+        <!-- กลุ่มโลโก้: 578.52 × 41.48px, ระยะห่างระหว่างโลโก้ ~86px (justify-between)
+             มือถือ: แสดงเป็น grid 2 คอลัมน์ เพราะ 578px กว้างกว่าจอ 375px -->
+        <div class="mt-12 grid max-w-[330px] grid-cols-2 items-center justify-items-start gap-y-7 text-logo-gray
+                    sm:flex sm:h-[41.48px] sm:w-full sm:max-w-[578.52px] sm:items-center sm:justify-between
+                    lg:mt-20">
+
+          <!-- 1. A|B CALEY PEACE : 81.28 × 33.63 -->
+          <div class="flex h-[33.63px] w-[81.28px] shrink-0 items-center gap-[4px]">
+            <div class="flex h-[33.63px] w-[33.63px] shrink-0 items-center justify-center bg-current text-[14px] font-bold leading-none">
+              <span class="text-white">A</span>
+              <span class="mx-[3px] h-full w-[1.5px] bg-white"></span>
+              <span class="text-white">B</span>
+            </div>
+            <p class="text-[12.5px] font-bold leading-[1.15]">CALEY<br>PEACE</p>
+          </div>
+
+          <!-- 2. DS DESIGN STUDIO : 81.28 × 33.63 -->
+          <div class="flex h-[33.63px] w-[81.28px] shrink-0 items-center gap-[3px]">
+            <span class="flex h-[33.63px] w-[33.63px] shrink-0 items-center justify-center rounded-full border border-current p-[2px]">
+              <span class="flex h-full w-full items-center justify-center rounded-full border-[1.5px] border-current text-[12px] font-bold leading-none">DS</span>
+            </span>
+            <p class="text-[12px] font-medium leading-[1.1]">DESIGN<br>STUDIO</p>
+          </div>
+
+          <!-- 3. HR HARRISON INDUSTRY CO. : 81.85 × 26.91 -->
+          <div class="flex h-[26.91px] w-[81.85px] shrink-0 items-center gap-[2px] font-condensed">
+            <div class="flex h-[26.91px] w-[26.91px] shrink-0 items-center justify-center bg-current">
+              <span class="text-[15px] font-bold leading-none tracking-[-0.5px] text-white">HR</span>
+            </div>
+            <div class="flex flex-1 flex-col leading-none">
+              <div class="border-y-[1.5px] border-current py-[1px] text-center text-[12.5px] font-bold tracking-[0.2px]">HARRISON</div>
+              <div class="mt-[2px] text-center text-[8px] font-medium tracking-[0.3px]">INDUSTRY CO.</div>
+            </div>
+          </div>
+
+          <!-- 4. BARBECUE -->
+          <!-- รูปจาก asset (พื้นโปร่งใส + สี #8585A5 แล้ว) ขนาดตามดีไซน์ 76.24 × 41.48px -->
+          <img src="asset/barbecue.png" alt="Barbecue" class="h-[41.48px] w-[76.24px] shrink-0 object-contain">
+        </div>
+      </div>
+
+      <!-- Right: dashboard mockup
+           วัดตำแหน่งจากดีไซน์ขนาด 1050 × 743px → แปลงเป็นหน่วย cqw (px ÷ 10.5)
+           ทุกอย่างจึงย่อ/ขยายตามความกว้างกล่องได้เท่ากันทั้งเดสก์ท็อปและมือถือ -->
+      <!-- มือถือ: ขึ้นก่อนข้อความ (order-first) และล้นขอบ padding เล็กน้อยให้กว้างเกือบเต็มจอ -->
+      <div class="relative order-first -mx-3 aspect-[1050/743] w-[calc(100%+1.5rem)] max-w-[700px] [container-type:inline-size]
+                  sm:mx-auto sm:w-full lg:order-none">
+
+        <!-- กรอบขาวด้านนอก -->
+        <div class="absolute left-[5.52cqw] top-[4.57cqw] h-[61.14cqw] w-[90.19cqw] rounded-[1.9cqw] bg-white shadow-[0_1cqw_4cqw_rgba(255,115,66,0.08)]"></div>
+        <!-- พื้นฟ้าอ่อนด้านใน -->
+        <div class="absolute left-[10.48cqw] top-[9.52cqw] h-[56.19cqw] w-[85.24cqw] rounded-br-[1.9cqw] bg-[#F4F7FE]"></div>
+
+        <!-- Overview -->
+        <p class="absolute left-[14.29cqw] top-[16.2cqw] text-[1.9cqw] font-bold leading-none text-[#1E3A5F]">Overview</p>
+
+        <!-- ===== แถวการ์ดบน (4 ใบ) ===== -->
+        <div class="absolute left-[13.9cqw] top-[18.67cqw] flex h-[8.57cqw] w-[18cqw] items-center gap-[1.33cqw] rounded-[0.57cqw] bg-white pl-[2.19cqw]">
+          <span class="h-[4.38cqw] w-[4.38cqw] shrink-0 rounded-full bg-[#FFE3D8]"></span>
+          <span class="flex flex-col gap-[1.33cqw]"><span class="block h-[0.48cqw] w-[5.05cqw] rounded-full bg-[#B4B9C4]"></span><span class="block h-[0.48cqw] w-[8.57cqw] rounded-full bg-[#EEF0F4]"></span></span>
+        </div>
+        <div class="absolute left-[34.1cqw] top-[18.67cqw] flex h-[8.57cqw] w-[18cqw] items-center gap-[1.33cqw] rounded-[0.57cqw] bg-white pl-[2.19cqw]">
+          <span class="h-[4.38cqw] w-[4.38cqw] shrink-0 rounded-full bg-[#FFD166]"></span>
+          <span class="flex flex-col gap-[1.33cqw]"><span class="block h-[0.48cqw] w-[5.05cqw] rounded-full bg-[#B4B9C4]"></span><span class="block h-[0.48cqw] w-[8.57cqw] rounded-full bg-[#EEF0F4]"></span></span>
+        </div>
+        <div class="absolute left-[54.38cqw] top-[18.67cqw] flex h-[8.57cqw] w-[18cqw] items-center gap-[1.33cqw] rounded-[0.57cqw] bg-white pl-[2.19cqw]">
+          <span class="h-[4.38cqw] w-[4.38cqw] shrink-0 rounded-full bg-[#3EE0F0]"></span>
+          <span class="flex flex-col gap-[1.33cqw]"><span class="block h-[0.48cqw] w-[5.05cqw] rounded-full bg-[#B4B9C4]"></span><span class="block h-[0.48cqw] w-[8.57cqw] rounded-full bg-[#EEF0F4]"></span></span>
+        </div>
+        <!-- การ์ดว่าง เส้นประ -->
+        <div class="absolute left-[74.67cqw] top-[18.67cqw] h-[8.57cqw] w-[18cqw] rounded-[0.57cqw] border border-dashed border-[#B4B9C4]"></div>
+
+        <!-- ===== กราฟแท่ง ===== -->
+        <div class="absolute left-[13.9cqw] top-[29.62cqw] h-[23.33cqw] w-[58.48cqw] overflow-hidden rounded-[0.57cqw] bg-white">
+          <svg class="h-full w-full" viewBox="0 0 614 245" aria-hidden="true">
+            <rect x="539" y="23" width="45" height="5" rx="2.5" fill="#B4B9C4"/>
+            <!-- เส้นกริดประ -->
+            <g stroke="#EEF0F4" stroke-width="1.5" stroke-dasharray="6 6">
+              <line x1="37" y1="51" x2="469" y2="51"/><line x1="37" y1="104" x2="469" y2="104"/>
+              <line x1="37" y1="157" x2="469" y2="157"/><line x1="37" y1="210" x2="469" y2="210"/>
+            </g>
+            <!-- แท่ง ส้ม/เหลือง (ฐานที่ y=211) -->
+            <g fill="#FF7342">
+              <rect x="57"  y="139" width="7" height="72"  rx="2"/>
+              <rect x="118" y="92"  width="7" height="119" rx="2"/>
+              <rect x="179" y="111" width="7" height="100" rx="2"/>
+              <rect x="240" y="121" width="7" height="90"  rx="2"/>
+              <rect x="302" y="101" width="7" height="110" rx="2"/>
+              <rect x="363" y="73"  width="7" height="138" rx="2"/>
+              <rect x="425" y="64"  width="7" height="147" rx="2"/>
+            </g>
+            <g fill="#FFD166">
+              <rect x="74"  y="149" width="7" height="62"  rx="2"/>
+              <rect x="135" y="101" width="7" height="110" rx="2"/>
+              <rect x="196" y="121" width="7" height="90"  rx="2"/>
+              <rect x="257" y="130" width="7" height="81"  rx="2"/>
+              <rect x="319" y="111" width="7" height="100" rx="2"/>
+              <rect x="381" y="82"  width="7" height="129" rx="2"/>
+              <rect x="442" y="73"  width="7" height="138" rx="2"/>
+            </g>
+            <!-- Legend -->
+            <rect x="517" y="83" width="26" height="5" rx="2.5" fill="#FFB400"/>
+            <text x="517" y="122" font-size="20" font-weight="700" fill="#1E3A5F">25,3K</text>
+            <rect x="517" y="154" width="26" height="5" rx="2.5" fill="#FF7342"/>
+            <text x="517" y="193" font-size="20" font-weight="700" fill="#1E3A5F">+120</text>
+          </svg>
+        </div>
+
+        <!-- ===== กราฟวงกลม ===== -->
+        <div class="absolute left-[74.67cqw] top-[29.62cqw] h-[23.33cqw] w-[18cqw] rounded-[0.57cqw] bg-white">
+          <svg class="h-full w-full" viewBox="0 0 189 245" aria-hidden="true">
+            <rect x="23" y="23" width="45" height="5" rx="2.5" fill="#B4B9C4"/>
+            <rect x="131" y="23" width="35" height="5" rx="2.5" fill="#EEF0F4"/>
+            <!-- วงแหวนเหลือง (130° → 348° นับจาก 12 นาฬิกา) -->
+            <circle cx="94" cy="136" r="59" fill="none" stroke="#FFD166" stroke-width="9" stroke-linecap="round"
+                    pathLength="100" stroke-dasharray="60.5 39.5" transform="rotate(40 94 136)"/>
+            <!-- ชิ้นพายส้ม (0° → 121°) -->
+            <path d="M94 136V72A64 64 0 0 1 148.86 168.96Z" fill="#FF7342" stroke="#FF7342" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <!-- ===== แถวล่าง ===== -->
+        <!-- กราฟเส้นมีจุด -->
+        <div class="absolute left-[13.9cqw] top-[55.05cqw] h-[13.52cqw] w-[34.19cqw] overflow-hidden rounded-[0.57cqw] bg-white">
+          <svg class="h-full w-full" viewBox="0 0 359 142" aria-hidden="true">
+            <rect x="23" y="24" width="45" height="5" rx="2.5" fill="#B4B9C4"/>
+            <rect x="301" y="24" width="35" height="5" rx="2.5" fill="#EEF0F4"/>
+            <g stroke="#EEF0F4" stroke-width="1.5" stroke-dasharray="6 6">
+              <line x1="23" y1="62" x2="336" y2="62"/><line x1="23" y1="117" x2="336" y2="117"/>
+            </g>
+            <polyline points="23,140 54,99 88,84 136,62 170,78 212,87 256,78 290,117 315,117 338,98"
+                      fill="none" stroke="#D5D8DE" stroke-width="3" stroke-linejoin="round"/>
+            <g fill="#D5D8DE">
+              <circle cx="54" cy="99" r="6"/><circle cx="136" cy="62" r="6"/><circle cx="212" cy="87" r="6"/>
+              <circle cx="256" cy="78" r="6"/><circle cx="290" cy="117" r="6"/><circle cx="315" cy="117" r="6"/><circle cx="338" cy="98" r="6"/>
+            </g>
+          </svg>
+        </div>
+        <!-- รายการ 2 แถว -->
+        <div class="absolute left-[49.43cqw] top-[55.24cqw] h-[13.33cqw] w-[23.9cqw] rounded-[0.57cqw] bg-white">
+          <svg class="h-full w-full" viewBox="0 0 251 140" aria-hidden="true">
+            <g fill="#D9D9D9"><circle cx="42" cy="42" r="18"/><circle cx="42" cy="102" r="18"/></g>
+            <g fill="#B4B9C4">
+              <rect x="74" y="30" width="79" height="5" rx="2.5"/><rect x="74" y="49" width="48" height="5" rx="2.5"/>
+              <rect x="74" y="90" width="79" height="5" rx="2.5"/><rect x="74" y="109" width="48" height="5" rx="2.5"/>
+            </g>
+            <g fill="#EEF0F4"><rect x="198" y="40" width="29" height="5" rx="2.5"/><rect x="198" y="100" width="29" height="5" rx="2.5"/></g>
+          </svg>
+        </div>
+        <!-- กราฟคลื่น -->
+        <div class="absolute left-[74.67cqw] top-[55.05cqw] h-[13.52cqw] w-[18cqw] rounded-[0.57cqw] bg-white">
+          <svg class="h-full w-full" viewBox="0 0 189 142" aria-hidden="true">
+            <rect x="23" y="24" width="45" height="5" rx="2.5" fill="#B4B9C4"/>
+            <rect x="23" y="40" width="73" height="5" rx="2.5" fill="#EEF0F4"/>
+            <path d="M23 104C35 96 45 100 55 103S75 92 90 88S115 100 130 92S150 82 160 78S170 68 176 59"
+                  fill="none" stroke="#C9CCD2" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <!-- ===== Floating card: Post Type ===== -->
+        <div class="absolute left-[0.95cqw] top-[0.76cqw] h-[25.62cqw] w-[20.19cqw] rounded-[0.95cqw] bg-white shadow-[0_1cqw_3.5cqw_rgba(30,58,95,0.10)]">
+          <svg class="h-full w-full" viewBox="0 0 212 269" aria-hidden="true">
+            <defs>
+              <filter id="pt-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1E3A5F" flood-opacity="0.10"/>
+              </filter>
+            </defs>
+            <text x="37" y="46" font-size="17" font-weight="500" fill="#1E3A5F">Post Type</text>
+            <!-- วงแหวน: ส้ม 13°→120°, เหลือง 129°→363° (นับจาก 3 นาฬิกา ตามเข็ม) -->
+            <g fill="none" stroke-width="8" stroke-linecap="round">
+              <circle cx="106" cy="136" r="56" pathLength="100" stroke="#FF7342" stroke-dasharray="29.7 70.3" transform="rotate(13 106 136)"/>
+              <circle cx="106" cy="136" r="56" pathLength="100" stroke="#FFD166" stroke-dasharray="65 35" transform="rotate(129 106 136)"/>
+            </g>
+            <!-- ปุ่มกลาง + ไอคอนอัปโหลด -->
+            <circle cx="106" cy="136" r="23" fill="#fff" filter="url(#pt-shadow)"/>
+            <g fill="#1E3A5F">
+              <path d="M106 125l6.5 6.5h-4.3v6.5h-4.4v-6.5h-4.3z"/>
+              <path d="M97 136h3v4.5h12V136h3v7.5H97z"/>
+            </g>
+            <rect x="108.5" y="140.8" width="2" height="1.4" fill="#fff"/>
+            <!-- Legend -->
+            <circle cx="39" cy="232" r="3" fill="#22C3E6"/>
+            <text x="50" y="237" font-size="13" fill="#4B5563">Images</text>
+            <circle cx="122" cy="232" r="3" fill="#2563EB"/>
+            <text x="133" y="237" font-size="13" fill="#4B5563">Videos</text>
+          </svg>
+        </div>
+
+        <!-- ===== Floating card: Total Likes ===== -->
+        <div class="absolute left-[76.76cqw] top-[14.19cqw] h-[10.19cqw] w-[21.24cqw] rounded-[0.95cqw] bg-white shadow-[0_1cqw_3.5cqw_rgba(30,58,95,0.10)]">
+          <svg class="h-full w-full" viewBox="0 0 223 107" aria-hidden="true">
+            <circle cx="53" cy="54" r="27" fill="#E8EEFB"/>
+            <!-- ไอคอนนิ้วโป้ง -->
+            <g fill="#2563EB">
+              <rect x="44" y="53" width="4" height="10" rx="1"/>
+              <path d="M50 63h9.5a2 2 0 0 0 2-1.6l1.4-6.5a2 2 0 0 0-2-2.4H55.5l.8-4a1.8 1.8 0 0 0-3.2-1.4L50 52.5z"/>
+            </g>
+            <text x="96" y="46" font-size="17" font-weight="700" fill="#1E3A5F">398K</text>
+            <text x="96" y="73" font-size="13" fill="#4B5563">Total Likes</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu toggle -->
+    <script>
+      (function () {
+        var btn = document.getElementById('menu-btn');
+        var menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', function () {
+          var open = menu.classList.toggle('hidden') === false;
+          btn.setAttribute('aria-expanded', open);
+        });
+      })();
+    </script>
+  </section>
+
+  
   
   <!-- ===================== Section 2  feature/everything===================== -->
    
