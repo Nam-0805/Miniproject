@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hrrd</title>
-  <!-- Google Fonts -->
+
+  <!-- Google Fonts: DM Sans สำหรับเนื้อหาทั่วไป -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Jost:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Jost:wght@500;600;700&family=Roboto+Condensed:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
   <!-- Tailwind CSS (Play CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -17,30 +18,1051 @@
           fontFamily: {
             sans: ['"Circular Std"', '"DM Sans"', 'sans-serif'],
             heading: ['"Circular Std"', 'Jost', 'sans-serif'],
+            condensed: ['"Roboto Condensed"', 'sans-serif'], // โลโก้ HARRISON
+            slab: ['"Playfair Display"', 'serif'],           // โลโก้ BARBECUE
           },
           colors: {
             primary: '#FF6B3D',
             secondary: '#FFD873',
             accent: '#3ED6F0',
             dark: '#2D2D2D',
+            'brand-dark': '#FF4F11',   // ส้มเข้ม
+            'brand-light': '#FF7342',  // ส้มอ่อน
+            'logo-gray': '#8585A5',    // สีโลโก้พาร์ทเนอร์
           },
         },
       },
     }
   </script>
+
+  <!-- โหลดฟอนต์ Circular Std จากไฟล์จริงในโฟลเดอร์ font/ -->
+  <style>
+    @font-face {
+      font-family: 'Circular Std';
+      src: url('font/circular-std-medium-500.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="font-sans antialiased text-[#3B3B3B]">
 
-  <!-- ===================== Section 1  ===================== -->
+  <!-- ===================== Section 1  hero===================== -->
+  <section id="home" class="relative overflow-hidden bg-gradient-to-b from-[#FFEDE6] via-[#FFF6F2] to-white">
+
+    <!-- ---------- Navbar ---------- -->
+    <header class="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-20">
+      <nav class="flex h-20 items-center justify-between lg:h-28">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2">
+          <svg class="h-8 w-[52px] lg:h-10 lg:w-[65px]" viewBox="0 0 260 160" fill="none" stroke-linecap="round" aria-hidden="true">
+            <!-- ลูกบอล (ส้มอ่อน) -->
+            <circle cx="135" cy="78" r="76" class="fill-brand-light"/>
+            <!-- แถบบน: เส้นยาวส้มอ่อน + ช่วงกลางส้มเข้ม -->
+            <line x1="28" y1="88" x2="240" y2="34" class="stroke-brand-light" stroke-width="26"/>
+            <line x1="52" y1="82" x2="210" y2="42" class="stroke-brand-dark" stroke-width="26"/>
+            <!-- แถบล่าง: ส้มเข้มทั้งเส้น -->
+            <line x1="48" y1="128" x2="236" y2="84" class="stroke-brand-dark" stroke-width="26"/>
+          </svg>
+          <span class="font-heading text-2xl font-bold text-dark lg:text-3xl">Hrr<span class="text-brand-light">d</span></span>
+        </a>
+
+        <!-- Menu (desktop) -->
+        <ul class="hidden items-center gap-10 text-sm text-dark md:flex lg:gap-14 lg:text-base">
+          <li><a href="#home" class="text-primary underline underline-offset-4">Home</a></li>
+          <li><a href="#feature" class="transition hover:text-primary">Feature</a></li>
+          <li><a href="#pricing" class="transition hover:text-primary">Pricing</a></li>
+          <li><a href="#testimonial" class="transition hover:text-primary">Testimonial</a></li>
+        </ul>
+
+        <!-- Buttons (desktop) -->
+        <div class="hidden items-center gap-4 md:flex">
+          <a href="#" class="rounded bg-secondary px-6 py-3 text-sm font-medium text-dark transition hover:brightness-95 lg:px-8 lg:py-4">Register</a>
+          <a href="#" class="rounded bg-primary px-6 py-3 text-sm font-medium text-white transition hover:brightness-110 lg:px-8 lg:py-4">Sign In</a>
+        </div>
+
+        <!-- Hamburger (mobile) -->
+        <button id="menu-btn" class="flex h-10 w-10 items-center justify-center rounded text-dark md:hidden" aria-label="Open menu" aria-expanded="false">
+          <!-- ไอคอนเมนูแบบ 4 ช่อง (ตามดีไซน์มือถือ) -->
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <rect x="2" y="2" width="9" height="9" rx="2.5"/><rect x="13" y="2" width="9" height="9" rx="2.5"/>
+            <rect x="2" y="13" width="9" height="9" rx="2.5"/><rect x="13" y="13" width="9" height="9" rx="2.5"/>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Menu (mobile) -->
+      <div id="mobile-menu" class="hidden rounded-xl bg-white p-6 shadow-lg md:hidden">
+        <ul class="flex flex-col gap-4 text-dark">
+          <li><a href="#home" class="text-primary">Home</a></li>
+          <li><a href="#feature">Feature</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#testimonial">Testimonial</a></li>
+        </ul>
+        <div class="mt-6 grid grid-cols-2 gap-3">
+          <a href="#" class="rounded bg-secondary py-3 text-center text-sm font-medium text-dark">Register</a>
+          <a href="#" class="rounded bg-primary py-3 text-center text-sm font-medium text-white">Sign In</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ---------- Hero content ---------- -->
+    <!-- มือถือ: dashboard อยู่บน → ข้อความ → ปุ่ม → โลโก้ (ชิดซ้าย) / เดสก์ท็อป: 2 คอลัมน์ -->
+    <div class="mx-auto grid max-w-[1440px] items-center gap-12 px-6 pb-16 pt-6 md:px-10 lg:grid-cols-2 lg:gap-10 lg:px-20 lg:pb-32 lg:pt-16">
+
+      <!-- Left: text -->
+      <div class="text-left">
+        <h1 class="font-heading text-[30px] font-bold leading-[1.45] text-dark md:text-6xl md:leading-[1.2] lg:text-[72px]">
+          Best Platform <br>for Monitor <br>Work Flow
+        </h1>
+        <a href="#" class="mt-9 inline-block rounded-md bg-primary px-[42px] py-5 text-base font-medium text-white shadow-lg shadow-primary/30 transition hover:brightness-110 lg:mt-12 lg:rounded lg:px-8 lg:py-4 lg:text-sm">
+          Get 15 Day Trial
+        </a>
+
+        <!-- Partner logos -->
+        <!-- กลุ่มโลโก้: 578.52 × 41.48px, ระยะห่างระหว่างโลโก้ ~86px (justify-between)
+             มือถือ: แสดงเป็น grid 2 คอลัมน์ เพราะ 578px กว้างกว่าจอ 375px -->
+        <div class="mt-12 grid max-w-[330px] grid-cols-2 items-center justify-items-start gap-y-7 text-logo-gray
+                    sm:flex sm:h-[41.48px] sm:w-full sm:max-w-[578.52px] sm:items-center sm:justify-between
+                    lg:mt-20">
+
+          <!-- 1. A|B CALEY PEACE : 81.28 × 33.63 -->
+          <div class="flex h-[33.63px] w-[81.28px] shrink-0 items-center gap-[4px]">
+            <div class="flex h-[33.63px] w-[33.63px] shrink-0 items-center justify-center bg-current text-[14px] font-bold leading-none">
+              <span class="text-white">A</span>
+              <span class="mx-[3px] h-full w-[1.5px] bg-white"></span>
+              <span class="text-white">B</span>
+            </div>
+            <p class="text-[12.5px] font-bold leading-[1.15]">CALEY<br>PEACE</p>
+          </div>
+
+          <!-- 2. DS DESIGN STUDIO : 81.28 × 33.63 -->
+          <div class="flex h-[33.63px] w-[81.28px] shrink-0 items-center gap-[3px]">
+            <span class="flex h-[33.63px] w-[33.63px] shrink-0 items-center justify-center rounded-full border border-current p-[2px]">
+              <span class="flex h-full w-full items-center justify-center rounded-full border-[1.5px] border-current text-[12px] font-bold leading-none">DS</span>
+            </span>
+            <p class="text-[12px] font-medium leading-[1.1]">DESIGN<br>STUDIO</p>
+          </div>
+
+          <!-- 3. HR HARRISON INDUSTRY CO. : 81.85 × 26.91 -->
+          <div class="flex h-[26.91px] w-[81.85px] shrink-0 items-center gap-[2px] font-condensed">
+            <div class="flex h-[26.91px] w-[26.91px] shrink-0 items-center justify-center bg-current">
+              <span class="text-[15px] font-bold leading-none tracking-[-0.5px] text-white">HR</span>
+            </div>
+            <div class="flex flex-1 flex-col leading-none">
+              <div class="border-y-[1.5px] border-current py-[1px] text-center text-[12.5px] font-bold tracking-[0.2px]">HARRISON</div>
+              <div class="mt-[2px] text-center text-[8px] font-medium tracking-[0.3px]">INDUSTRY CO.</div>
+            </div>
+          </div>
+
+          <!-- 4. BARBECUE -->
+          <!-- รูปจาก asset (พื้นโปร่งใส + สี #8585A5 แล้ว) ขนาดตามดีไซน์ 76.24 × 41.48px -->
+          <img src="asset/barbecue.png" alt="Barbecue" class="h-[41.48px] w-[76.24px] shrink-0 object-contain">
+        </div>
+      </div>
+
+      <!-- Right: dashboard mockup
+           วัดตำแหน่งจากดีไซน์ขนาด 1050 × 743px → แปลงเป็นหน่วย cqw (px ÷ 10.5)
+           ทุกอย่างจึงย่อ/ขยายตามความกว้างกล่องได้เท่ากันทั้งเดสก์ท็อปและมือถือ -->
+      <!-- มือถือ: ขึ้นก่อนข้อความ (order-first) และล้นขอบ padding เล็กน้อยให้กว้างเกือบเต็มจอ -->
+      <div class="relative order-first -mx-3 aspect-[1050/743] w-[calc(100%+1.5rem)] max-w-[700px] [container-type:inline-size]
+                  sm:mx-auto sm:w-full lg:order-none">
+
+        <!-- กรอบขาวด้านนอก -->
+        <div class="absolute left-[5.52cqw] top-[4.57cqw] h-[61.14cqw] w-[90.19cqw] rounded-[1.9cqw] bg-white shadow-[0_1cqw_4cqw_rgba(255,115,66,0.08)]"></div>
+        <!-- พื้นฟ้าอ่อนด้านใน -->
+        <div class="absolute left-[10.48cqw] top-[9.52cqw] h-[56.19cqw] w-[85.24cqw] rounded-br-[1.9cqw] bg-[#F4F7FE]"></div>
+
+        <!-- Overview -->
+        <p class="absolute left-[14.29cqw] top-[16.2cqw] text-[1.9cqw] font-bold leading-none text-[#1E3A5F]">Overview</p>
+
+        <!-- ===== แถวการ์ดบน (4 ใบ) ===== -->
+        <div class="absolute left-[13.9cqw] top-[18.67cqw] flex h-[8.57cqw] w-[18cqw] items-center gap-[1.33cqw] rounded-[0.57cqw] bg-white pl-[2.19cqw]">
+          <span class="h-[4.38cqw] w-[4.38cqw] shrink-0 rounded-full bg-[#FFE3D8]"></span>
+          <span class="flex flex-col gap-[1.33cqw]"><span class="block h-[0.48cqw] w-[5.05cqw] rounded-full bg-[#B4B9C4]"></span><span class="block h-[0.48cqw] w-[8.57cqw] rounded-full bg-[#EEF0F4]"></span></span>
+        </div>
+        <div class="absolute left-[34.1cqw] top-[18.67cqw] flex h-[8.57cqw] w-[18cqw] items-center gap-[1.33cqw] rounded-[0.57cqw] bg-white pl-[2.19cqw]">
+          <span class="h-[4.38cqw] w-[4.38cqw] shrink-0 rounded-full bg-[#FFD166]"></span>
+          <span class="flex flex-col gap-[1.33cqw]"><span class="block h-[0.48cqw] w-[5.05cqw] rounded-full bg-[#B4B9C4]"></span><span class="block h-[0.48cqw] w-[8.57cqw] rounded-full bg-[#EEF0F4]"></span></span>
+        </div>
+        <div class="absolute left-[54.38cqw] top-[18.67cqw] flex h-[8.57cqw] w-[18cqw] items-center gap-[1.33cqw] rounded-[0.57cqw] bg-white pl-[2.19cqw]">
+          <span class="h-[4.38cqw] w-[4.38cqw] shrink-0 rounded-full bg-[#3EE0F0]"></span>
+          <span class="flex flex-col gap-[1.33cqw]"><span class="block h-[0.48cqw] w-[5.05cqw] rounded-full bg-[#B4B9C4]"></span><span class="block h-[0.48cqw] w-[8.57cqw] rounded-full bg-[#EEF0F4]"></span></span>
+        </div>
+        <!-- การ์ดว่าง เส้นประ -->
+        <div class="absolute left-[74.67cqw] top-[18.67cqw] h-[8.57cqw] w-[18cqw] rounded-[0.57cqw] border border-dashed border-[#B4B9C4]"></div>
+
+        <!-- ===== กราฟแท่ง ===== -->
+        <div class="absolute left-[13.9cqw] top-[29.62cqw] h-[23.33cqw] w-[58.48cqw] overflow-hidden rounded-[0.57cqw] bg-white">
+          <svg class="h-full w-full" viewBox="0 0 614 245" aria-hidden="true">
+            <rect x="539" y="23" width="45" height="5" rx="2.5" fill="#B4B9C4"/>
+            <!-- เส้นกริดประ -->
+            <g stroke="#EEF0F4" stroke-width="1.5" stroke-dasharray="6 6">
+              <line x1="37" y1="51" x2="469" y2="51"/><line x1="37" y1="104" x2="469" y2="104"/>
+              <line x1="37" y1="157" x2="469" y2="157"/><line x1="37" y1="210" x2="469" y2="210"/>
+            </g>
+            <!-- แท่ง ส้ม/เหลือง (ฐานที่ y=211) -->
+            <g fill="#FF7342">
+              <rect x="57"  y="139" width="7" height="72"  rx="2"/>
+              <rect x="118" y="92"  width="7" height="119" rx="2"/>
+              <rect x="179" y="111" width="7" height="100" rx="2"/>
+              <rect x="240" y="121" width="7" height="90"  rx="2"/>
+              <rect x="302" y="101" width="7" height="110" rx="2"/>
+              <rect x="363" y="73"  width="7" height="138" rx="2"/>
+              <rect x="425" y="64"  width="7" height="147" rx="2"/>
+            </g>
+            <g fill="#FFD166">
+              <rect x="74"  y="149" width="7" height="62"  rx="2"/>
+              <rect x="135" y="101" width="7" height="110" rx="2"/>
+              <rect x="196" y="121" width="7" height="90"  rx="2"/>
+              <rect x="257" y="130" width="7" height="81"  rx="2"/>
+              <rect x="319" y="111" width="7" height="100" rx="2"/>
+              <rect x="381" y="82"  width="7" height="129" rx="2"/>
+              <rect x="442" y="73"  width="7" height="138" rx="2"/>
+            </g>
+            <!-- Legend -->
+            <rect x="517" y="83" width="26" height="5" rx="2.5" fill="#FFB400"/>
+            <text x="517" y="122" font-size="20" font-weight="700" fill="#1E3A5F">25,3K</text>
+            <rect x="517" y="154" width="26" height="5" rx="2.5" fill="#FF7342"/>
+            <text x="517" y="193" font-size="20" font-weight="700" fill="#1E3A5F">+120</text>
+          </svg>
+        </div>
+
+        <!-- ===== กราฟวงกลม ===== -->
+        <div class="absolute left-[74.67cqw] top-[29.62cqw] h-[23.33cqw] w-[18cqw] rounded-[0.57cqw] bg-white">
+          <svg class="h-full w-full" viewBox="0 0 189 245" aria-hidden="true">
+            <rect x="23" y="23" width="45" height="5" rx="2.5" fill="#B4B9C4"/>
+            <rect x="131" y="23" width="35" height="5" rx="2.5" fill="#EEF0F4"/>
+            <!-- วงแหวนเหลือง (130° → 348° นับจาก 12 นาฬิกา) -->
+            <circle cx="94" cy="136" r="59" fill="none" stroke="#FFD166" stroke-width="9" stroke-linecap="round"
+                    pathLength="100" stroke-dasharray="60.5 39.5" transform="rotate(40 94 136)"/>
+            <!-- ชิ้นพายส้ม (0° → 121°) -->
+            <path d="M94 136V72A64 64 0 0 1 148.86 168.96Z" fill="#FF7342" stroke="#FF7342" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <!-- ===== แถวล่าง ===== -->
+        <!-- กราฟเส้นมีจุด -->
+        <div class="absolute left-[13.9cqw] top-[55.05cqw] h-[13.52cqw] w-[34.19cqw] overflow-hidden rounded-[0.57cqw] bg-white">
+          <svg class="h-full w-full" viewBox="0 0 359 142" aria-hidden="true">
+            <rect x="23" y="24" width="45" height="5" rx="2.5" fill="#B4B9C4"/>
+            <rect x="301" y="24" width="35" height="5" rx="2.5" fill="#EEF0F4"/>
+            <g stroke="#EEF0F4" stroke-width="1.5" stroke-dasharray="6 6">
+              <line x1="23" y1="62" x2="336" y2="62"/><line x1="23" y1="117" x2="336" y2="117"/>
+            </g>
+            <polyline points="23,140 54,99 88,84 136,62 170,78 212,87 256,78 290,117 315,117 338,98"
+                      fill="none" stroke="#D5D8DE" stroke-width="3" stroke-linejoin="round"/>
+            <g fill="#D5D8DE">
+              <circle cx="54" cy="99" r="6"/><circle cx="136" cy="62" r="6"/><circle cx="212" cy="87" r="6"/>
+              <circle cx="256" cy="78" r="6"/><circle cx="290" cy="117" r="6"/><circle cx="315" cy="117" r="6"/><circle cx="338" cy="98" r="6"/>
+            </g>
+          </svg>
+        </div>
+        <!-- รายการ 2 แถว -->
+        <div class="absolute left-[49.43cqw] top-[55.24cqw] h-[13.33cqw] w-[23.9cqw] rounded-[0.57cqw] bg-white">
+          <svg class="h-full w-full" viewBox="0 0 251 140" aria-hidden="true">
+            <g fill="#D9D9D9"><circle cx="42" cy="42" r="18"/><circle cx="42" cy="102" r="18"/></g>
+            <g fill="#B4B9C4">
+              <rect x="74" y="30" width="79" height="5" rx="2.5"/><rect x="74" y="49" width="48" height="5" rx="2.5"/>
+              <rect x="74" y="90" width="79" height="5" rx="2.5"/><rect x="74" y="109" width="48" height="5" rx="2.5"/>
+            </g>
+            <g fill="#EEF0F4"><rect x="198" y="40" width="29" height="5" rx="2.5"/><rect x="198" y="100" width="29" height="5" rx="2.5"/></g>
+          </svg>
+        </div>
+        <!-- กราฟคลื่น -->
+        <div class="absolute left-[74.67cqw] top-[55.05cqw] h-[13.52cqw] w-[18cqw] rounded-[0.57cqw] bg-white">
+          <svg class="h-full w-full" viewBox="0 0 189 142" aria-hidden="true">
+            <rect x="23" y="24" width="45" height="5" rx="2.5" fill="#B4B9C4"/>
+            <rect x="23" y="40" width="73" height="5" rx="2.5" fill="#EEF0F4"/>
+            <path d="M23 104C35 96 45 100 55 103S75 92 90 88S115 100 130 92S150 82 160 78S170 68 176 59"
+                  fill="none" stroke="#C9CCD2" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <!-- ===== Floating card: Post Type ===== -->
+        <div class="absolute left-[0.95cqw] top-[0.76cqw] h-[25.62cqw] w-[20.19cqw] rounded-[0.95cqw] bg-white shadow-[0_1cqw_3.5cqw_rgba(30,58,95,0.10)]">
+          <svg class="h-full w-full" viewBox="0 0 212 269" aria-hidden="true">
+            <defs>
+              <filter id="pt-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1E3A5F" flood-opacity="0.10"/>
+              </filter>
+            </defs>
+            <text x="37" y="46" font-size="17" font-weight="500" fill="#1E3A5F">Post Type</text>
+            <!-- วงแหวน: ส้ม 13°→120°, เหลือง 129°→363° (นับจาก 3 นาฬิกา ตามเข็ม) -->
+            <g fill="none" stroke-width="8" stroke-linecap="round">
+              <circle cx="106" cy="136" r="56" pathLength="100" stroke="#FF7342" stroke-dasharray="29.7 70.3" transform="rotate(13 106 136)"/>
+              <circle cx="106" cy="136" r="56" pathLength="100" stroke="#FFD166" stroke-dasharray="65 35" transform="rotate(129 106 136)"/>
+            </g>
+            <!-- ปุ่มกลาง + ไอคอนอัปโหลด -->
+            <circle cx="106" cy="136" r="23" fill="#fff" filter="url(#pt-shadow)"/>
+            <g fill="#1E3A5F">
+              <path d="M106 125l6.5 6.5h-4.3v6.5h-4.4v-6.5h-4.3z"/>
+              <path d="M97 136h3v4.5h12V136h3v7.5H97z"/>
+            </g>
+            <rect x="108.5" y="140.8" width="2" height="1.4" fill="#fff"/>
+            <!-- Legend -->
+            <circle cx="39" cy="232" r="3" fill="#22C3E6"/>
+            <text x="50" y="237" font-size="13" fill="#4B5563">Images</text>
+            <circle cx="122" cy="232" r="3" fill="#2563EB"/>
+            <text x="133" y="237" font-size="13" fill="#4B5563">Videos</text>
+          </svg>
+        </div>
+
+        <!-- ===== Floating card: Total Likes ===== -->
+        <div class="absolute left-[76.76cqw] top-[14.19cqw] h-[10.19cqw] w-[21.24cqw] rounded-[0.95cqw] bg-white shadow-[0_1cqw_3.5cqw_rgba(30,58,95,0.10)]">
+          <svg class="h-full w-full" viewBox="0 0 223 107" aria-hidden="true">
+            <circle cx="53" cy="54" r="27" fill="#E8EEFB"/>
+            <!-- ไอคอนนิ้วโป้ง -->
+            <g fill="#2563EB">
+              <rect x="44" y="53" width="4" height="10" rx="1"/>
+              <path d="M50 63h9.5a2 2 0 0 0 2-1.6l1.4-6.5a2 2 0 0 0-2-2.4H55.5l.8-4a1.8 1.8 0 0 0-3.2-1.4L50 52.5z"/>
+            </g>
+            <text x="96" y="46" font-size="17" font-weight="700" fill="#1E3A5F">398K</text>
+            <text x="96" y="73" font-size="13" fill="#4B5563">Total Likes</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu toggle -->
+    <script>
+      (function () {
+        var btn = document.getElementById('menu-btn');
+        var menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', function () {
+          var open = menu.classList.toggle('hidden') === false;
+          btn.setAttribute('aria-expanded', open);
+        });
+      })();
+    </script>
+  </section>
+
   
-  <!-- ===================== Section 2  ===================== -->
+  
+  <!-- ===================== Section 2  feature/everything===================== -->
+  <!-- ===================== Featured We Provide for You===================== -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-[1480px] mx-auto">
+    <!-- Section Title -->
+    <div class="mx-auto text-center mb-16">
+      <h2 class="font-heading font-black text-[48px] leading-[58px] tracking-[0%] text-center text-dark">
+        <span class="whitespace-nowrap">
+          <span class="relative inline-block">
+            <span class="relative z-10">Featur</span>
+            <span class="absolute -left-2 -right-3 top-0 bottom-0 bg-[#FFE3D8] -z-0"></span>
+          </span><span class="relative z-10">ed</span> We
+        </span><br>
+        <span class="whitespace-nowrap">Provide for You</span>
+      </h2>
+    </div>
+
+    <!-- Features Grid (แถวบน 3 การ์ด / แถวล่าง 2 การ์ดจัดกึ่งกลาง) -->
+    <div class="flex flex-wrap justify-center gap-7">
+
+      <!-- Card 1: Dashboard -->
+      <div class="w-full md:w-[calc(50%-0.875rem)] lg:w-[calc(33.333%-1.25rem)] max-w-[453.33px] min-h-[178px] bg-white rounded-[20px] p-8 shadow-[5px_30px_56.13px_0px_rgba(55,55,55,0.05)] flex items-center gap-5 transition-transform duration-300 hover:-translate-y-1">
+        <div class="w-[80px] h-[80px] rounded-full bg-[rgba(106,153,255,1)] flex items-center justify-center shrink-0">
+          <img src="assets/icon-dashboard.png" alt="Dashboard" class="w-[40px] h-[40px] object-contain brightness-0 invert">
+        </div>
+        <div>
+          <h3 class="font-heading font-bold text-[24px] leading-[32px] tracking-[0px] text-[rgba(59,59,59,1)] mb-1.5">Dashboard</h3>
+          <p class="font-['DM_Sans'] font-normal text-[16px] leading-[28px] tracking-[0px] text-[rgba(90,113,132,1)]">
+            Assertively parallel task synergistic deliverables after high-quality.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2: Statistics -->
+      <div class="w-full md:w-[calc(50%-0.875rem)] lg:w-[calc(33.333%-1.25rem)] max-w-[453.33px] min-h-[178px] bg-white rounded-[20px] p-8 shadow-[5px_30px_56.13px_0px_rgba(55,55,55,0.05)] flex items-center gap-5 transition-transform duration-300 hover:-translate-y-1">
+        <div class="w-[80px] h-[80px] rounded-full bg-[rgba(255,115,66,1)] flex items-center justify-center shrink-0">
+          <img src="assets/icon-statistics.png" alt="Statistics" class="w-[40px] h-[40px] object-contain">
+        </div>
+        <div>
+          <h3 class="font-heading font-bold text-[24px] leading-[32px] tracking-[0px] text-[rgba(59,59,59,1)] mb-1.5">Statistics</h3>
+          <p class="font-['DM_Sans'] font-normal text-[16px] leading-[28px] tracking-[0px] text-[rgba(90,113,132,1)]">
+            Assertively parallel task synergistic deliverables after high-quality.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3: Easy Access -->
+      <div class="w-full md:w-[calc(50%-0.875rem)] lg:w-[calc(33.333%-1.25rem)] max-w-[453.33px] min-h-[178px] bg-white rounded-[20px] p-8 shadow-[5px_30px_56.13px_0px_rgba(55,55,55,0.05)] flex items-center gap-5 transition-transform duration-300 hover:-translate-y-1">
+        <div class="w-[80px] h-[80px] rounded-full bg-[rgba(64,211,229,1)] flex items-center justify-center shrink-0">
+          <img src="assets/icon-easy Access.png" alt="Easy Access" class="w-[40px] h-[40px] object-contain">
+        </div>
+        <div>
+          <h3 class="font-heading font-bold text-[24px] leading-[32px] tracking-[0px] text-[rgba(59,59,59,1)] mb-1.5">Easy Access</h3>
+          <p class="font-['DM_Sans'] font-normal text-[16px] leading-[28px] tracking-[0px] text-[rgba(90,113,132,1)]">
+            Assertively parallel task synergistic deliverables after high-quality.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4: Collobration -->
+      <div class="w-full md:w-[calc(50%-0.875rem)] lg:w-[calc(33.333%-1.25rem)] max-w-[453.33px] min-h-[178px] bg-white rounded-[20px] p-8 shadow-[5px_30px_56.13px_0px_rgba(55,55,55,0.05)] flex items-center gap-5 transition-transform duration-300 hover:-translate-y-1">
+        <div class="w-[80px] h-[80px] rounded-full bg-[rgba(255,209,103,1)] flex items-center justify-center shrink-0">
+          <img src="assets/icon-collobration.png" alt="Collobration" class="w-[40px] h-[40px] object-contain">
+        </div>
+        <div>
+          <h3 class="font-heading font-bold text-[24px] leading-[32px] tracking-[0px] text-[rgba(59,59,59,1)] mb-1.5">Collobration</h3>
+          <p class="font-['DM_Sans'] font-normal text-[16px] leading-[28px] tracking-[0px] text-[rgba(90,113,132,1)]">
+            Assertively parallel task synergistic deliverables after high-quality.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 5: Total Control -->
+      <div class="w-full md:w-[calc(50%-0.875rem)] lg:w-[calc(33.333%-1.25rem)] max-w-[453.33px] min-h-[178px] bg-white rounded-[20px] p-8 shadow-[5px_30px_56.13px_0px_rgba(55,55,55,0.05)] flex items-center gap-5 transition-transform duration-300 hover:-translate-y-1">
+        <div class="w-[80px] h-[80px] rounded-full bg-[rgba(30,202,171,1)] flex items-center justify-center shrink-0">
+          <img src="assets/icon-Total Control.png" alt="Total Control" class="w-[40px] h-[40px] object-contain">
+        </div>
+        <div>
+          <h3 class="font-heading font-bold text-[24px] leading-[32px] tracking-[0px] text-[rgba(59,59,59,1)] mb-1.5">Total Control</h3>
+          <p class="font-['DM_Sans'] font-normal text-[16px] leading-[28px] tracking-[0px] text-[rgba(90,113,132,1)]">
+            Assertively parallel task synergistic deliverables after high-quality.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!--Everything you need in one place-->
+  <section class="py-28 px-4 sm:px-6 lg:px-8 max-w-[1480px] mx-auto overflow-x-clip">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center">
+  
+    <!-- ฝั่งซ้าย: การ์ด UI แบบซ้อนเลเยอร์ และรูปทรงตกแต่ง-->
+    <div class="lg:col-span-6 relative flex justify-center items-center py-6 sm:py-16 lg:py-20 overflow-visible">
+      
+      <!-- กรอบคุมความสูงบนมือถือไม่ให้เหลือพื้นที่ว่างเกินจริงหลังการย่อ Scale -->
+      <div class="relative w-[335px] h-[420px] sm:w-[460px] sm:h-[580px] lg:w-[550.63px] lg:h-auto flex justify-center items-center">
+        
+        <!-- กล่องต้นฉบับขนาด 550.63px ที่ถูกย่อสเกลบนมือถือ (0.48 เท่า) และคืนค่า 100% บนจอใหญ่ -->
+        <div class="relative w-[550.63px] shrink-0 origin-center scale-[0.48] sm:scale-[0.72] lg:scale-100">
+
+          <!-- รูปทรงตกแต่ง: สีเหลืองมุมซ้ายบน -->
+          <img src="assets/Rectangle 738.png" alt="Decorative Yellow Shape" class="absolute -top-[70px] -left-[85px] w-[370px] h-[370px] object-contain -z-10 pointer-events-none select-none">
+
+          <!-- รูปทรงตกแต่ง: วงกลมสีฟ้ามุมขวาล่าง -->
+          <div class="absolute top-[155px] -right-[105px] w-[560px] h-[560px] bg-[rgba(55,224,245,1)] rounded-full -z-10"></div>
+
+          <!-- การ์ดโครงร่างหลักตรงกลาง -->
+          <div class="w-full h-[641.8px] bg-[rgba(255,255,255,1)] rounded-[14.9px] px-8 py-12 shadow-[0px_21.11px_50px_0px_rgba(0,0,0,0.08)] relative z-10 flex flex-col justify-center items-center gap-7">
+            
+            <!-- กล่องเส้นปะที่ 1 (ด้านบน) -->
+            <div class="w-full max-w-[442.15px] h-[220.87px] border-[0.87px] border-dashed border-[rgba(179,186,197,1)] rounded-[6.94px] px-8 flex flex-col justify-center items-center">
+              <div class="w-full max-w-[342.72px] space-y-5">
+                <!-- แถบที่ 1: เต็มความกว้าง -->
+                <div class="w-full h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+                <!-- แถบที่ 2: ซ้ายยาว ขวาสั้น -->
+                <div class="grid grid-cols-12 gap-5">
+                  <div class="col-span-8 h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+                  <div class="col-span-4 h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+                </div>
+                <!-- แถบที่ 3: เต็มความกว้าง -->
+                <div class="w-full h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+              </div>
+            </div>
+
+            <!-- กล่องเส้นปะที่ 2 (ด้านล่าง) -->
+            <div class="w-full max-w-[442.15px] h-[220.87px] border-[0.87px] border-dashed border-[rgba(179,186,197,1)] rounded-[6.94px] px-8 flex flex-col justify-center items-center">
+              <div class="w-full max-w-[342.72px] space-y-5">
+                <!-- แถบที่ 1: เต็มความกว้าง -->
+                <div class="w-full h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+                <!-- แถบที่ 2: แบ่ง 3 ชิ้น (ชิ้น 1 และ 2 กว้าง 119.22px) -->
+                <div class="flex items-center justify-between gap-4">
+                  <div class="w-[119.22px] h-[25.63px] bg-[rgba(229,232,238,1)] shrink-0"></div>
+                  <div class="w-[119.22px] h-[25.63px] bg-[rgba(229,232,238,1)] shrink-0"></div>
+                  <div class="flex-1 h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+                </div>
+                <!-- แถบที่ 3: เต็มความกว้าง -->
+                <div class="w-full h-[25.63px] bg-[rgba(229,232,238,1)]"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- การ์ดลอยใบที่ 1: รายได้เดือนนี้ (มุมขวาบน) -->
+          <div class="absolute -top-[80px] -right-[70px] w-[316.86px] h-[208.17px] bg-[rgba(255,255,255,1)] rounded-[20.01px] px-8 shadow-[0px_29.73px_68.22px_0px_rgba(0,0,0,0.06)] flex flex-col justify-center z-20">
+            <p class="font-heading font-normal text-[14px] leading-[24px] tracking-[0px] text-[rgba(90,113,132,1)] mb-2">Income This Month</p>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="font-heading font-bold text-[30px] leading-[30px] tracking-[0px] text-[rgba(51,51,51,1)]">$ 50.36</span>
+              <span class="inline-flex items-center gap-1 text-[rgba(30,202,171,1)]">
+                <svg class="w-[10px] h-[12px] -rotate-[60deg] shrink-0" fill="none" viewBox="0 0 10 12" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M1 6h8m0 0L5.5 2.5M9 6L5.5 9.5" />
+                </svg>
+                <span class="font-heading font-normal text-[12px] leading-[10px] tracking-[0px]">12%</span>
+              </span>
+            </div>
+            <img src="assets/icon-graph.png" alt="Income Graph" class="w-[236.86px] h-[35px] object-contain">
+          </div>
+
+          <!-- การ์ดลอยใบที่ 2: ยอดถูกใจ 398K (ตรงกลางซ้าย) -->
+          <div class="absolute top-[148px] -left-[75px] w-[383.22px] h-[215.18px] bg-[rgba(255,255,255,1)] rounded-[17.93px] px-9 shadow-[0px_26.65px_61.13px_0px_rgba(0,0,0,0.06)] flex items-center gap-7 z-20">
+            <div class="w-[107.59px] h-[107.59px] rounded-full bg-[rgba(21,101,216,0.1)] flex items-center justify-center shrink-0">
+              <img src="assets/Icon-like.png" alt="Total Likes" class="w-[31.35px] h-[36.05px] object-contain">
+            </div>
+            <div>
+              <p class="font-heading font-bold text-[37.62px] leading-[50.16px] tracking-[0.31px] text-[rgba(51,51,51,1)]">398K</p>
+              <p class="font-heading font-normal text-[28.21px] leading-[50.16px] tracking-[0px] text-[rgba(90,113,132,1)]">Total Likes</p>
+            </div>
+          </div>
+
+          <!-- การ์ดลอยใบที่ 3: นัดหมายวันเสาร์ 20:00 น. (มุมขวาล่าง) -->
+          <div class="absolute -bottom-[105px] -right-[125px] w-[385px] h-[278.19px] bg-[rgba(255,255,255,1)] rounded-[14.9px] px-7 shadow-[0px_21.11px_50px_0px_rgba(0,0,0,0.08)] flex flex-col justify-center text-center z-20">
+            <div class="flex justify-center items-center gap-3.5 mb-5">
+              <span class="w-[47.19px] h-[47.19px] rounded-full bg-[rgba(196,196,196,1)] inline-block shrink-0"></span>
+              <span class="w-[47.19px] h-[47.19px] rounded-full bg-[rgba(196,196,196,1)] inline-block shrink-0"></span>
+              <span class="w-[47.19px] h-[47.19px] rounded-full bg-[rgba(196,196,196,1)] inline-block shrink-0"></span>
+              <span class="w-[47.19px] h-[47.19px] rounded-full bg-[rgba(196,196,196,1)] inline-block shrink-0"></span>
+              <span class="w-[47.19px] h-[47.19px] rounded-full bg-[rgba(196,196,196,1)] inline-block shrink-0"></span>
+            </div>
+            <h4 class="font-heading font-bold text-[24.84px] leading-[29.81px] tracking-[0.25px] text-center text-[rgba(24,59,86,1)] mb-1.5">Saturday, 8pm</h4>
+            <p class="font-heading font-normal text-[17.39px] leading-[29.81px] tracking-[0px] text-center text-[rgba(90,113,132,1)] mb-6">Time to active in meeting</p>
+            <div class="flex justify-center items-center gap-3">
+              <button type="button" class="inline-flex items-center justify-center w-[161.45px] h-[47.19px] rounded-[9.94px] bg-[rgba(106,153,255,1)] hover:bg-[#5285f5] font-heading font-medium text-[17.39px] leading-[24.84px] tracking-[0px] text-center text-[rgba(255,255,255,1)] transition-colors shrink-0">
+                Schedule Post
+              </button>
+              <button type="button" class="inline-flex items-center justify-center w-[149.03px] h-[47.19px] rounded-[9.94px] bg-[rgba(106,153,255,0.1)] hover:bg-[rgba(106,153,255,0.2)] font-heading font-medium text-[17.39px] leading-[24.84px] tracking-[0px] text-center text-[rgba(106,153,255,1)] transition-colors shrink-0">
+                See Insight
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+      <!-- ฝั่งขวา: หัวข้อ รายการจุดเด่น และปุ่มกด -->
+    <div class="lg:col-span-6 lg:pl-16 mt-14 lg:mt-0">
+      <!-- หัวข้อหลักของ Section -->
+      <h2 class="font-heading font-black text-[48px] leading-[58px] tracking-[0%] text-[rgba(59,59,59,1)] mb-10">
+        Everything you<br>
+        need in one <span class="relative inline-block">
+          <span class="relative z-10">plac</span>
+          <span class="absolute -left-2 -right-2.5 top-0 bottom-0 bg-[#FFE3D8] -z-0"></span>
+        </span><span class="relative z-10">e</span>
+      </h2>
+
+      <!-- รายการจุดเด่น 4 หัวข้อ -->
+      <div class="space-y-4 w-full max-w-[574px] mb-10">
+        <!-- รายการที่ 1 -->
+        <a href="#" class="group flex items-center justify-between w-full h-[70px] bg-[rgba(255,243,239,1)] hover:bg-[#FFEBE4] px-6 rounded-[4px] transition-colors">
+          <div class="flex items-center gap-3.5">
+            <span class="w-[8px] h-[8px] rounded-full bg-[rgba(255,115,66,1)] shrink-0"></span>
+            <span class="font-['DM_Sans'] font-medium text-[20px] leading-[32px] tracking-[0px] text-[rgba(59,59,59,1)]">Real-time data</span>
+          </div>
+          <svg class="w-[20px] h-[20px] text-[rgba(35,11,52,1)] group-hover:text-[rgba(255,115,66,1)] group-hover:translate-x-1 transition-all shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+
+        <!-- รายการที่ 2 -->
+        <a href="#" class="group flex items-center justify-between w-full h-[70px] bg-[rgba(255,243,239,1)] hover:bg-[#FFEBE4] px-6 rounded-[4px] transition-colors">
+          <div class="flex items-center gap-3.5">
+            <span class="w-[8px] h-[8px] rounded-full bg-[rgba(255,115,66,1)] shrink-0"></span>
+            <span class="font-['DM_Sans'] font-medium text-[20px] leading-[32px] tracking-[0px] text-[rgba(59,59,59,1)]">End-to-end encyption</span>
+          </div>
+          <svg class="w-[20px] h-[20px] text-[rgba(35,11,52,1)] group-hover:text-[rgba(255,115,66,1)] group-hover:translate-x-1 transition-all shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+
+        <!-- รายการที่ 3 -->
+        <a href="#" class="group flex items-center justify-between w-full h-[70px] bg-[rgba(255,243,239,1)] hover:bg-[#FFEBE4] px-6 rounded-[4px] transition-colors">
+          <div class="flex items-center gap-3.5">
+            <span class="w-[8px] h-[8px] rounded-full bg-[rgba(255,115,66,1)] shrink-0"></span>
+            <span class="font-['DM_Sans'] font-medium text-[20px] leading-[32px] tracking-[0px] text-[rgba(59,59,59,1)]">FDIC Insured</span>
+          </div>
+          <svg class="w-[20px] h-[20px] text-[rgba(35,11,52,1)] group-hover:text-[rgba(255,115,66,1)] group-hover:translate-x-1 transition-all shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+
+        <!-- รายการที่ 4 -->
+        <a href="#" class="group flex items-center justify-between w-full h-[70px] bg-[rgba(255,243,239,1)] hover:bg-[#FFEBE4] px-6 rounded-[4px] transition-colors">
+          <div class="flex items-center gap-3.5">
+            <span class="w-[8px] h-[8px] rounded-full bg-[rgba(255,115,66,1)] shrink-0"></span>
+            <span class="font-['DM_Sans'] font-medium text-[20px] leading-[32px] tracking-[0px] text-[rgba(59,59,59,1)]">REST API enabled</span>
+          </div>
+          <svg class="w-[20px] h-[20px] text-[rgba(35,11,52,1)] group-hover:text-[rgba(255,115,66,1)] group-hover:translate-x-1 transition-all shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- ปุ่มกดหลัก (Call to Action) -->
+      <a href="#" class="inline-flex items-center justify-center w-[199px] h-[64px] bg-[rgba(255,115,66,1)] hover:bg-[#e85a2d] font-['DM_Sans'] font-bold text-[16px] leading-none tracking-[0%] text-[rgba(255,255,255,1)] rounded-[4px] shadow-[0_10px_25px_rgba(255,107,61,0.25)] transition-all">
+        Try it Out Free
+      </a>
+    </div>
+
+  </div>
+</section>
+  
    
+  <!-- ===================== Section 3 (Integrations, Pricing & Testimonial) ===================== -->
+  <div>
 
-  <!-- ===================== Section 3  ===================== -->
+    <!-- Part 1 & 2: Integrations & Pricing (พื้นหลังสี #F9F9F9) -->
+    <section class="bg-[#F9F9F9] text-[#3B3B3B] pt-[60px] lg:pt-[180px] pb-[80px] lg:pb-[180px] overflow-hidden">
+      
+      <!-- Container หลัก 1420px -->
+      <div class="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-0 relative">
 
-    
-  <!-- ===================== Section 4  ===================== -->
- 
+        <!-- ================= Sub-Section: Easy to Intrigate Your Apps ================= -->
+        <div class="mb-[90px] lg:mb-[180px] relative">
+          
+          <!-- Decorative Shape: ครึ่งวงกลมสีฟ้า (แสดงทั้ง Mobile 375px และ Desktop) -->
+          <div class="absolute -top-[6px] left-[2px] sm:top-[35px] sm:-left-6 lg:top-[35px] lg:-left-16 xl:-left-24 w-[42px] h-[42px] sm:w-[65px] sm:h-[65px] lg:w-[82px] lg:h-[82px] pointer-events-none select-none z-0">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+              <path d="M 27.5 89.0 L 72.5 11.0 A 45.0 45.0 0 0 1 27.5 89.0 Z" fill="#37E0F5"/>
+            </svg>
+          </div>
+
+          <!-- Heading: Easy to Intrigate Your Apps -->
+          <div class="text-center mb-[36px] lg:mb-[70px] max-w-[650px] mx-auto relative z-10">
+            <h2 class="font-heading font-black text-[24px] sm:text-[38px] lg:text-[48px] leading-[34px] sm:leading-[48px] lg:leading-[58px] text-[#3B3B3B] [-webkit-text-stroke:0.4px_#3B3B3B]">
+              <span class="inline-block whitespace-nowrap">
+                Easy to
+                <span class="relative inline-block z-10 ml-1.5">
+                  <span class="relative z-10">Intrigate</span>
+                  <!-- กรอบสีส้มพีชพร้อมเส้นขอบ border-[#FF7342]: ล้ำซ้ายตัว I, จบหลังตัว a, ขอบล่างตัดผ่านห่วงล่างของตัว g -->
+                  <span class="absolute -left-[0.22em] right-[23.5%] top-[0.04em] bottom-[0.14em] bg-[#FF7342]/20 border border-[#FF7342] -z-10 pointer-events-none"></span>
+                </span>
+              </span>
+              <br>
+              <span class="inline-block whitespace-nowrap">Your Apps</span>
+            </h2>
+          </div>
+
+          <!-- App Logos Grid: Mobile (375px) เรียง 1 คอลัมน์, Tablet 3 คอลัมน์, Desktop 5 คอลัมน์ -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-y-[20px] sm:gap-4 lg:gap-x-[10px] lg:gap-y-[20px] justify-items-center relative z-10">
+            
+            <!-- Row 1: 1. Slack -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/slack.png" alt="Slack" class="max-h-[38px] max-w-[130px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 1: 2. Netflix -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/netflix.png" alt="Netflix" class="max-h-[34px] max-w-[120px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 1: 3. Google (Active Coral Card) -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-[#FF7342] rounded-[13px] shadow-[10px_20px_50px_rgba(81,75,75,0.2)] flex items-center justify-center p-4 hover:scale-[1.02] transition-transform duration-300">
+              <img src="asset/google.white.png" alt="Google" class="max-h-[38px] max-w-[130px] object-contain">
+            </div>
+
+            <!-- Row 1: 4. Fitbit -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/fitbit.png" alt="Fitbit" class="max-h-[34px] max-w-[120px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 1: 5. Airbnb -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/airbnb.png" alt="Airbnb" class="max-h-[38px] max-w-[130px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 2: 1. Airbnb (ซ่อนบน Mobile 375px ตามแบบ Figma) -->
+            <div class="hidden sm:flex w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/airbnb.png" alt="Airbnb" class="max-h-[38px] max-w-[130px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 2: 2. Fitbit -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/fitbit.png" alt="Fitbit" class="max-h-[34px] max-w-[120px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 2: 3. Netflix -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/netflix.png" alt="Netflix" class="max-h-[34px] max-w-[120px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 2: 4. Slack -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/slack.png" alt="Slack" class="max-h-[38px] max-w-[130px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 2: 5. Google (Grey) -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/google.grey.png" alt="Google" class="max-h-[38px] max-w-[130px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= Sub-Section: Affordable Pricing ================= -->
+        <div class="relative pt-4 lg:pt-0">
+          
+          <!-- Decorative Shape: สี่เหลี่ยมสีน้ำเงินมุมมน (Mobile อยู่ขวาบนเหนือหัวข้อ / Desktop อยู่ด้านขวาของ Toggle) -->
+          <div class="absolute -top-[30px] right-[18px] sm:top-[60px] sm:-right-4 lg:top-[70px] lg:-right-16 xl:-right-20 w-[26px] sm:w-[75px] lg:w-[105px] pointer-events-none select-none z-10">
+            <img src="asset/Rectangle 740.png" alt="Decorative Shape" class="w-full h-auto drop-shadow-md">
+          </div>
+
+          <!-- Heading: Affordable Pricing -->
+          <div class="text-center mb-6 max-w-[650px] mx-auto">
+            <h2 class="font-heading font-black text-[24px] sm:text-[38px] lg:text-[48px] leading-[34px] sm:leading-[48px] lg:leading-[58px] text-[#3B3B3B] [-webkit-text-stroke:0.4px_#3B3B3B] inline-block whitespace-nowrap">
+              Affordable
+              <span class="relative inline-block z-10 ml-1.5">
+                <span class="relative z-10">Pricing</span>
+                <!-- กรอบสีส้มพีชพร้อมเส้นขอบ border-[#FF7342]: ล้ำซ้ายตัว P, ขอบขวาผ่ากลางขาขวาของตัว n, และยกขอบล่างให้รับกับฐาน Pricin -->
+                <span class="absolute -left-[0.24em] right-[25.5%] top-[0.04em] bottom-[0.12em] bg-[#FF7342]/20 border border-[#FF7342] -z-10 pointer-events-none"></span>
+              </span>
+            </h2>
+          </div>
+
+          <!-- Billing Toggle (Monthly / Anually) -->
+          <div class="flex items-center justify-center gap-3 sm:gap-4 mb-[45px] lg:mb-[60px] select-none">
+            <span id="monthly-label" class="cursor-pointer text-[16px] sm:text-[20px] leading-[32px] text-[#333333] font-medium transition-colors duration-200">
+              Monthly
+            </span>
+            
+            <button 
+              id="pricing-toggle-btn" 
+              type="button" 
+              role="switch"
+              aria-checked="true"
+              aria-label="Toggle Billing Frequency" 
+              class="w-[78px] sm:w-[90px] h-[36px] sm:h-[41px] bg-[#FF7342] rounded-full p-1 sm:p-[6px] relative cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#FF7342]/40"
+            >
+              <span 
+                id="toggle-knob" 
+                class="block w-[28px] sm:w-[29px] h-[28px] sm:h-[29px] bg-white rounded-full shadow-md transform translate-x-[42px] sm:translate-x-[49px] transition-transform duration-300 ease-in-out"
+              ></span>
+            </button>
+            
+            <span id="anually-label" class="cursor-pointer text-[16px] sm:text-[20px] leading-[32px] text-[#5A7184] font-normal transition-colors duration-200">
+              Anually
+            </span>
+          </div>
+
+          <!-- 3 Pricing Cards Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-[30px] items-stretch justify-center max-w-[1420px] mx-auto relative z-10">
+            
+            <!-- Card 1: Free Plan -->
+            <div class="w-full max-w-[335px] sm:max-w-[453.33px] min-h-[490px] sm:min-h-[536px] mx-auto bg-white rounded-[15px] p-7 sm:p-10 lg:p-[50px] flex flex-col justify-between transition-all duration-300">
+              <div>
+                <h3 class="font-heading font-bold text-[22px] sm:text-[24px] leading-[32px] text-[#3B3B3B] mb-2">Free Plan</h3>
+                <div class="flex items-baseline gap-2 mb-6">
+                  <span class="font-heading font-black text-[42px] sm:text-[48px] leading-[58px] text-[#3B3B3B]">$0</span>
+                  <span class="text-[15px] sm:text-[16px] leading-[26px] text-[#5A7184]">/ month</span>
+                </div>
+
+                <div class="w-full h-[1.5px] bg-[#F5F6FA] mb-6"></div>
+
+                <ul class="space-y-[18px] mb-8">
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Access to editing all blocks</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Editing blocks together</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Access to all premium icons</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">A dedicated domain</span>
+                  </li>
+                </ul>
+              </div>
+
+              <button class="w-full h-[58px] sm:h-[64px] bg-[#FFD167] text-white font-bold text-[16px] leading-[21px] rounded-[4px] hover:bg-[#ffc84d] transition-colors duration-200 flex items-center justify-center">
+                Try for Free
+              </button>
+            </div>
+
+            <!-- Card 2: Premium Plan (Elevated Shadow) -->
+            <div class="w-full max-w-[335px] sm:max-w-[453.33px] min-h-[490px] sm:min-h-[536px] mx-auto bg-white rounded-[15px] p-7 sm:p-10 lg:p-[50px] flex flex-col justify-between shadow-[0px_54px_50px_rgba(67,67,68,0.071)] relative z-10 transition-all duration-300">
+              <div>
+                <h3 class="font-heading font-bold text-[22px] sm:text-[24px] leading-[32px] text-[#3B3B3B] mb-2">Premium Plan</h3>
+                <div class="flex items-baseline gap-2 mb-6">
+                  <span id="price-premium" class="font-heading font-black text-[42px] sm:text-[48px] leading-[58px] text-[#3B3B3B] transition-all duration-200">$199</span>
+                  <span id="period-premium" class="text-[15px] sm:text-[16px] leading-[26px] text-[#5A7184] transition-all duration-200">/ year</span>
+                </div>
+
+                <div class="w-full h-[1.5px] bg-[#F5F6FA] mb-6"></div>
+
+                <ul class="space-y-[18px] mb-8">
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Access to editing all blocks</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Editing blocks together</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Access to all premium icons</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">A dedicated domain</span>
+                  </li>
+                </ul>
+              </div>
+
+              <button class="w-full h-[58px] sm:h-[64px] bg-[#FF7342] text-white font-bold text-[16px] leading-[21px] rounded-[4px] hover:bg-[#f0612f] transition-colors duration-200 flex items-center justify-center">
+                Try for Free
+              </button>
+            </div>
+
+            <!-- Card 3: Business Plan -->
+            <div class="w-full max-w-[335px] sm:max-w-[453.33px] min-h-[490px] sm:min-h-[536px] mx-auto bg-white rounded-[15px] p-7 sm:p-10 lg:p-[50px] flex flex-col justify-between transition-all duration-300">
+              <div>
+                <h3 class="font-heading font-bold text-[22px] sm:text-[24px] leading-[32px] text-[#3B3B3B] mb-2">Business Plan</h3>
+                <div class="flex items-baseline gap-2 mb-6">
+                  <span id="price-business" class="font-heading font-black text-[42px] sm:text-[48px] leading-[58px] text-[#3B3B3B] transition-all duration-200">$299</span>
+                  <span id="period-business" class="text-[15px] sm:text-[16px] leading-[26px] text-[#5A7184] transition-all duration-200">/ year</span>
+                </div>
+
+                <div class="w-full h-[1.5px] bg-[#F5F6FA] mb-6"></div>
+
+                <ul class="space-y-[18px] mb-8">
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Access to editing all blocks</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Editing blocks together</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Access to all premium icons</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">A dedicated domain</span>
+                  </li>
+                </ul>
+              </div>
+
+              <button class="w-full h-[58px] sm:h-[64px] bg-[#FFD167] text-white font-bold text-[16px] leading-[21px] rounded-[4px] hover:bg-[#ffc84d] transition-colors duration-200 flex items-center justify-center">
+                Try for Free
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Part 3: Testimonials Section (พื้นหลังสีขาว #FFFFFF) -->
+    <section class="bg-white text-[#3B3B3B] py-[60px] lg:py-[100px] overflow-hidden">
+      <div class="max-w-[1420px] mx-auto px-6 sm:px-8 xl:px-0">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          
+          <!-- Column 1: Quote Text, Author & Arrows (Mobile อยู่ด้านล่าง order-2 / Desktop อยู่ด้านซ้าย lg:order-1) -->
+          <div class="order-2 lg:order-1 lg:col-span-7 max-w-[695px]">
+            <p class="font-heading font-black text-[20px] sm:text-[26px] lg:text-[30px] leading-[40px] sm:leading-[48px] lg:leading-[60px] text-[#3B3B3B] mb-6 lg:mb-8">
+              “I’ve downloaded Hrrd from my Google Play about 1 years ago. This make the prototype process so easy and faster. I feel this is the best apps for Prototyping<span class="hidden sm:inline"> use</span>”
+            </p>
+
+            <p class="text-[14px] sm:text-[18px] leading-[24px] text-[#5A7184] mb-8 lg:mb-12">
+              — Ferdinand &nbsp;- Co Founder of CocoPay
+            </p>
+
+            <!-- Navigation Controls -->
+            <div class="flex items-center gap-[30px]">
+              <button type="button" aria-label="Previous Testimonial" class="text-[#FF7342] hover:opacity-80 transition-opacity focus:outline-none">
+                <svg class="w-[42px] sm:w-[48px] h-[24px]" viewBox="0 0 46 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M44 12H2M2 12L12 2M2 12L12 22" stroke="#FF7342" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+
+              <button type="button" aria-label="Next Testimonial" class="text-[#3B3B3B] hover:opacity-80 transition-opacity focus:outline-none">
+                <svg class="w-[30px] sm:w-[34px] h-[20px]" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 10H30M30 10L22 2M30 10L22 18" stroke="#3B3B3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Column 2: วงกลมสีฟ้าและเส้นวงแหวน (Mobile อยู่ด้านบน order-1 / Desktop อยู่ด้านขวา lg:order-2) -->
+          <div class="order-1 lg:order-2 lg:col-span-5 relative flex items-center justify-center lg:justify-end">
+            
+            <div class="relative w-[275px] sm:w-[420px] lg:w-[500px] xl:w-[550px] aspect-square my-4 lg:my-0">
+              
+              <!-- เส้นวงแหวนที่ 1 (Ellipse 975) -->
+              <div class="absolute w-[105.1%] h-[105.1%] -top-[9.1%] -left-[3.8%] rounded-full border border-[#37E0F5] pointer-events-none select-none z-0"></div>
+
+              <!-- เส้นวงแหวนที่ 2 (Ellipse 976) -->
+              <div class="absolute w-[105.1%] h-[105.1%] -top-[5.1%] left-[10.0%] rounded-full border border-[#37E0F5] pointer-events-none select-none z-0"></div>
+
+              <!-- วงกลมสีฟ้า Solid Cyan (Ellipse 981) -->
+              <div class="w-full h-full rounded-full bg-[#37E0F5] relative shadow-sm z-10"></div>
+
+              <!-- เครื่องหมายคำพูดคู่ (quote-left.png) ขอบล่างซ้าย -->
+              <div class="absolute top-[85.4%] left-[22.2%] -translate-x-1/2 -translate-y-1/2 z-20 w-[46px] sm:w-[70px] lg:w-[86px]">
+                <img src="asset/quote-left.png" alt="Quote Icon" class="w-full h-auto object-contain">
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===================== Section 4 ===================== -->
+    <!-- CTA -->
+    <div id="contact" class="px-5 pb-14 sm:px-8 sm:pb-16">
+      <div class="mx-auto max-w-5xl rounded-lg bg-[#669CF0] px-5 py-10 text-center text-white shadow-lg sm:px-10 sm:py-12">
+        <span class="inline-block rounded bg-sky-500 px-2 py-1 text-xs font-bold">15-day free trial</span>
+        <h2 class="mt-3 font-heading text-2xl font-bold sm:text-3xl">Start Your 15 Days Free Trial!</h2>
+        <p class="mt-3 text-xs leading-5 text-blue-50">Distinctively supply accurate methods of empowerment before.</p>
+        <form class="mx-auto mt-7 flex max-w-md flex-col gap-2 rounded-md bg-white p-2 sm:flex-row" onsubmit="event.preventDefault()">
+          <label for="trial-email" class="sr-only">Email address</label>
+          <input id="trial-email" type="email" required placeholder="Email" class="min-w-0 flex-1 rounded px-3 py-2 text-sm text-slate-700 outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-[#3ED6F0]">
+          <button type="submit" class="rounded bg-[#FF6B3D] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#F45525]">Submit Now</button>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Footer -->
+    <footer class="border-t border-slate-100 px-5 py-10 sm:px-8 sm:py-12">
+      <div class="mx-auto grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-5">
+        <div class="lg:col-span-1">
+          <a href="#home" class="font-heading text-2xl font-bold tracking-tight">Hrr<span class="text-[#FF6B3D]">d</span></a>
+          <p class="mt-3 max-w-xs text-xs leading-5 text-slate-500">Professionally create cross functional human capital and extensive technology solutions.</p>
+          <div class="mt-4 flex gap-2 text-xs text-[#FF6B3D]"><a href="#" aria-label="Instagram" class="rounded-full bg-orange-50 p-2 transition hover:bg-orange-100">ig</a><a href="#" aria-label="Twitter" class="rounded-full bg-orange-50 p-2 transition hover:bg-orange-100">tw</a><a href="#" aria-label="Facebook" class="rounded-full bg-orange-50 p-2 transition hover:bg-orange-100">fb</a></div>
+        </div>
+        <div><h3 class="text-sm font-bold">Services</h3><ul class="mt-3 space-y-2 text-xs text-slate-500"><li><a class="hover:text-[#FF6B3D]" href="#">Documentation</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Design</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Themes</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Resources</a></li></ul></div>
+        <div><h3 class="text-sm font-bold">Company</h3><ul class="mt-3 space-y-2 text-xs text-slate-500"><li><a class="hover:text-[#FF6B3D]" href="#">About</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Terms</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Privacy Policy</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Careers</a></li></ul></div>
+        <div><h3 class="text-sm font-bold">Job Info</h3><ul class="mt-3 space-y-2 text-xs text-slate-500"><li><a class="hover:text-[#FF6B3D]" href="#">Select</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Services</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Payment</a></li></ul></div>
+        <div><h3 class="text-sm font-bold">Contact</h3><ul class="mt-3 space-y-2 text-xs leading-5 text-slate-500"><li>Call: 07 5546 963</li><li>Email: example@gmail.com</li><li>Address: Dhaka, Bangladesh</li></ul></div>
+      </div>
+      <p class="mx-auto mt-8 max-w-5xl text-xs text-slate-400">Copyright © Hrrd. All right reserved.</p>
+    </footer>
+  </section>
+  
+  <!-- JavaScript ควบคุมปุ่ม Toggle ราคา -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleBtn = document.getElementById('pricing-toggle-btn');
+      const toggleKnob = document.getElementById('toggle-knob');
+      const monthlyLabel = document.getElementById('monthly-label');
+      const anuallyLabel = document.getElementById('anually-label');
+
+      const pricePremium = document.getElementById('price-premium');
+      const periodPremium = document.getElementById('period-premium');
+      const priceBusiness = document.getElementById('price-business');
+      const periodBusiness = document.getElementById('period-business');
+
+      let isAnually = true;
+
+      function updatePricingUI() {
+        if (isAnually) {
+          toggleKnob.classList.remove('translate-x-0');
+          toggleKnob.classList.add('translate-x-[42px]', 'sm:translate-x-[49px]');
+
+          pricePremium.textContent = '$199';
+          periodPremium.textContent = '/ year';
+          priceBusiness.textContent = '$299';
+          periodBusiness.textContent = '/ year';
+
+          toggleBtn.setAttribute('aria-checked', 'true');
+        } else {
+          toggleKnob.classList.remove('translate-x-[42px]', 'sm:translate-x-[49px]');
+          toggleKnob.classList.add('translate-x-0');
+
+          pricePremium.textContent = '$19';
+          periodPremium.textContent = '/ month';
+          priceBusiness.textContent = '$29';
+          periodBusiness.textContent = '/ month';
+
+          toggleBtn.setAttribute('aria-checked', 'false');
+        }
+      }
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function () {
+          isAnually = !isAnually;
+          updatePricingUI();
+        });
+      }
+
+      if (monthlyLabel) {
+        monthlyLabel.addEventListener('click', function () {
+          if (isAnually) {
+            isAnually = false;
+            updatePricingUI();
+          }
+        });
+      }
+
+      if (anuallyLabel) {
+        anuallyLabel.addEventListener('click', function () {
+          if (!isAnually) {
+            isAnually = true;
+            updatePricingUI();
+          }
+        });
+      }
+    });
+  </script>
+  
 </body>
 </html>
