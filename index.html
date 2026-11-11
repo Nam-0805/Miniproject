@@ -1024,5 +1024,173 @@
     });
   </script>
    
+  <section id="pricing" class="overflow-hidden bg-white font-sans text-[#2D2D2D]">
+    <!-- Testimonial -->
+    <div id="testimonial" class="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 sm:px-8 md:grid-cols-2 md:gap-14 md:py-24">
+      <div class="order-2 md:order-1">
+        <div class="border-2 border-[#FFD166] p-4 sm:p-5">
+          <p class="text-base font-bold leading-8 sm:text-lg">“I’ve downloaded Hrrd from my Google Play about 1 years ago. This make the prototype process so easy and faster. I feel this is the best apps for Prototyping use”</p>
+        </div>
+        <p class="mt-3 text-xs text-slate-500">— Ferdinand · Co-Founder of CocoPay</p>
+        <div class="mt-6 flex gap-3">
+          <button type="button" aria-label="Previous testimonial" class="text-2xl leading-none text-[#FF6B3D] transition hover:-translate-x-1">←</button>
+          <button type="button" aria-label="Next testimonial" class="text-2xl leading-none text-[#2D2D2D] transition hover:translate-x-1">→</button>
+        </div>
+      </div>
+      <div class="relative order-1 mx-auto flex aspect-square w-full max-w-[300px] items-center justify-center md:order-2 md:max-w-[390px]">
+        <div class="absolute inset-0 rounded-full border border-[#3ED6F0]"></div>
+        <div class="absolute inset-[7%] rounded-full bg-[#3ED6F0] transition-transform duration-500 hover:scale-105"></div>
+        <span class="absolute bottom-[3%] left-[16%] z-10 text-7xl font-bold leading-none text-[#2D2D2D]">“</span>
+      </div>
+    </div>
+  
+    <!-- Partner brands: two rows -->
+    <div class="border-y border-slate-100 bg-[#F8FAFC] px-5 py-10 sm:px-8">
+      <div class="mx-auto max-w-5xl">
+        <p class="mb-7 text-center text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Trusted by teams at</p>
+        <div class="grid grid-cols-2 items-center gap-x-5 gap-y-8 text-center sm:grid-cols-4 sm:gap-x-8">
+          <div class="font-heading text-lg font-bold tracking-tight text-slate-500">CALEY <span class="font-normal">PEACE</span></div>
+          <div class="text-lg font-semibold tracking-wide text-slate-500">◉ DS <span class="text-sm font-normal">DESIGN STUDIO</span></div>
+          <div class="font-condensed text-lg font-bold tracking-wide text-slate-500">HR HARRISON</div>
+          <div class="font-slab text-lg font-bold text-slate-500">BARBECUE</div>
+          <div class="text-lg font-bold tracking-wide text-slate-500">NORTHSTAR</div>
+          <div class="font-heading text-lg font-semibold text-slate-500">COCOPAY</div>
+          <div class="text-lg font-bold tracking-[0.15em] text-slate-500">MOTION</div>
+          <div class="font-condensed text-lg font-bold text-slate-500">STUDIO 08</div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Pricing plans -->
+    <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#FF6B3D]">Simple pricing</p>
+        <h2 class="mt-3 font-heading text-3xl font-bold tracking-tight sm:text-4xl">Choose the plan that fits</h2>
+        <p class="mt-4 text-sm leading-6 text-slate-500 sm:text-base">Everything your team needs to plan, prototype, and move work forward.</p>
+        <div class="mt-7 inline-flex items-center gap-1 rounded-full bg-slate-100 p-1">
+          <button id="billing-monthly" type="button" aria-pressed="true" class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#2D2D2D] shadow-sm transition">Monthly</button>
+          <button id="billing-annually" type="button" aria-pressed="false" class="rounded-full px-4 py-2 text-sm font-semibold text-slate-500 transition hover:text-[#2D2D2D]">Annually <span class="text-[#FF6B3D]">(save 20%)</span></button>
+        </div>
+      </div>
+  
+      <div class="mt-10 grid gap-5 md:grid-cols-3 md:gap-6">
+        <article data-plan-card="starter" class="group flex cursor-pointer flex-col rounded-2xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#FF6B3D] hover:shadow-xl sm:p-7">
+          <h3 class="font-heading text-xl font-bold">Starter</h3>
+          <p class="mt-2 min-h-10 text-sm leading-5 text-slate-500">For individuals getting started with better workflows.</p>
+          <p class="mt-6"><span class="text-4xl font-bold tracking-tight" data-monthly="$0" data-annual="$0">$0</span><span class="text-sm text-slate-500"> / user / month</span></p>
+          <a href="#contact" class="mt-6 rounded-lg border border-slate-300 px-4 py-3 text-center text-sm font-semibold transition hover:border-[#FF6B3D] hover:text-[#FF6B3D]">Get started</a>
+          <ul class="mt-7 space-y-3 text-sm text-slate-600">
+            <li>✓ 3 projects</li>
+            <li>✓ Core prototyping tools</li>
+            <li>✓ Community support</li>
+          </ul>
+        </article>
+        
+        <article data-plan-card="pro" class="group relative flex cursor-pointer flex-col rounded-2xl border-2 border-[#FF6B3D] bg-white p-6 shadow-lg shadow-orange-100 transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-7">
+          <span class="absolute right-5 top-5 rounded-full bg-[#FFF0EA] px-3 py-1 text-xs font-bold text-[#FF6B3D]">POPULAR</span>
+          <h3 class="font-heading text-xl font-bold">Pro</h3>
+          <p class="mt-2 min-h-10 text-sm leading-5 text-slate-500">For creators who want to build and share without limits.</p>
+          <p class="mt-6"><span class="text-4xl font-bold tracking-tight" data-monthly="$12" data-annual="$9.60">$12</span><span class="text-sm text-slate-500"> / user / month</span></p>
+          <a href="#contact" class="mt-6 rounded-lg bg-[#FF6B3D] px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-[#F45525] hover:shadow-lg">Start free trial</a>
+          <ul class="mt-7 space-y-3 text-sm text-slate-600">
+            <li>✓ Unlimited projects</li>
+            <li>✓ Advanced collaboration</li>
+            <li>✓ Priority support</li>
+          </ul>
+        </article>
+        
+        <article data-plan-card="team" class="group relative flex cursor-pointer flex-col rounded-2xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#FF6B3D] hover:shadow-xl sm:p-7">
+          <h3 class="font-heading text-xl font-bold">Team</h3>
+          <p class="mt-2 min-h-10 text-sm leading-5 text-slate-500">For teams that need shared control and more capacity.</p>
+          <p class="mt-6"><span class="text-4xl font-bold tracking-tight" data-monthly="$24" data-annual="$19.20">$24</span><span class="text-sm text-slate-500"> / user / month</span></p>
+          <a href="#contact" class="mt-6 rounded-lg border border-slate-300 px-4 py-3 text-center text-sm font-semibold transition hover:border-[#FF6B3D] hover:text-[#FF6B3D]">Choose Team</a>
+          <ul class="mt-7 space-y-3 text-sm text-slate-600">
+            <li>✓ Everything in Pro</li>
+            <li>✓ Team workspaces</li>
+            <li>✓ Admin and billing controls</li>
+          </ul>
+        </article>
+      </div>
+      <p class="mt-5 text-center text-xs text-slate-400">Prices shown in USD. Annual billing is charged yearly.</p>
+    </div>
+  
+    <!-- CTA -->
+    <div id="contact" class="px-5 pb-14 sm:px-8 sm:pb-16">
+      <div class="mx-auto max-w-5xl rounded-lg bg-[#669CF0] px-5 py-10 text-center text-white shadow-lg sm:px-10 sm:py-12">
+        <span class="inline-block rounded bg-sky-500 px-2 py-1 text-xs font-bold">15-day free trial</span>
+        <h2 class="mt-3 font-heading text-2xl font-bold sm:text-3xl">Start Your 15 Days Free Trial!</h2>
+        <p class="mt-3 text-xs leading-5 text-blue-50">Distinctively supply accurate methods of empowerment before.</p>
+        <form class="mx-auto mt-7 flex max-w-md flex-col gap-2 rounded-md bg-white p-2 sm:flex-row" onsubmit="event.preventDefault()">
+          <label for="trial-email" class="sr-only">Email address</label>
+          <input id="trial-email" type="email" required placeholder="Email" class="min-w-0 flex-1 rounded px-3 py-2 text-sm text-slate-700 outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-[#3ED6F0]">
+          <button type="submit" class="rounded bg-[#FF6B3D] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#F45525]">Submit Now</button>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Footer -->
+    <footer class="border-t border-slate-100 px-5 py-10 sm:px-8 sm:py-12">
+      <div class="mx-auto grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-5">
+        <div class="lg:col-span-1">
+          <a href="#home" class="font-heading text-2xl font-bold tracking-tight">Hrr<span class="text-[#FF6B3D]">d</span></a>
+          <p class="mt-3 max-w-xs text-xs leading-5 text-slate-500">Professionally create cross functional human capital and extensive technology solutions.</p>
+          <div class="mt-4 flex gap-2 text-xs text-[#FF6B3D]"><a href="#" aria-label="Instagram" class="rounded-full bg-orange-50 p-2 transition hover:bg-orange-100">ig</a><a href="#" aria-label="Twitter" class="rounded-full bg-orange-50 p-2 transition hover:bg-orange-100">tw</a><a href="#" aria-label="Facebook" class="rounded-full bg-orange-50 p-2 transition hover:bg-orange-100">fb</a></div>
+        </div>
+        <div><h3 class="text-sm font-bold">Services</h3><ul class="mt-3 space-y-2 text-xs text-slate-500"><li><a class="hover:text-[#FF6B3D]" href="#">Documentation</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Design</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Themes</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Resources</a></li></ul></div>
+        <div><h3 class="text-sm font-bold">Company</h3><ul class="mt-3 space-y-2 text-xs text-slate-500"><li><a class="hover:text-[#FF6B3D]" href="#">About</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Terms</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Privacy Policy</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Careers</a></li></ul></div>
+        <div><h3 class="text-sm font-bold">Job Info</h3><ul class="mt-3 space-y-2 text-xs text-slate-500"><li><a class="hover:text-[#FF6B3D]" href="#">Select</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Services</a></li><li><a class="hover:text-[#FF6B3D]" href="#">Payment</a></li></ul></div>
+        <div><h3 class="text-sm font-bold">Contact</h3><ul class="mt-3 space-y-2 text-xs leading-5 text-slate-500"><li>Call: 07 5546 963</li><li>Email: example@gmail.com</li><li>Address: Dhaka, Bangladesh</li></ul></div>
+      </div>
+      <p class="mx-auto mt-8 max-w-5xl text-xs text-slate-400">Copyright © Hrrd. All right reserved.</p>
+    </footer>
+  </section>
+  
+  <script>
+    (() => {
+      const monthlyButton = document.getElementById('billing-monthly');
+      const annualButton = document.getElementById('billing-annually');
+      const prices = document.querySelectorAll('#pricing [data-monthly][data-annual]');
+      const setBilling = (annual) => {
+        prices.forEach((price) => { price.textContent = annual ? price.dataset.annual : price.dataset.monthly; });
+        monthlyButton.setAttribute('aria-pressed', String(!annual));
+        annualButton.setAttribute('aria-pressed', String(annual));
+        monthlyButton.className = annual
+          ? 'rounded-full px-4 py-2 text-sm font-semibold text-slate-500 transition hover:text-[#2D2D2D]'
+          : 'rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#2D2D2D] shadow-sm transition';
+        annualButton.className = annual
+          ? 'rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#2D2D2D] shadow-sm transition'
+          : 'rounded-full px-4 py-2 text-sm font-semibold text-slate-500 transition hover:text-[#2D2D2D]';
+      };
+      monthlyButton.addEventListener('click', () => setBilling(false));
+      annualButton.addEventListener('click', () => setBilling(true));
+
+      const planCards = document.querySelectorAll('#pricing [data-plan-card]');
+
+const selectPlan = (selectedPlan) => {
+  planCards.forEach((card) => {
+    const isSelected = card.dataset.planCard === selectedPlan;
+
+    card.classList.toggle('border-2', isSelected);
+    card.classList.toggle('border-[#FF6B3D]', isSelected);
+    card.classList.toggle('shadow-lg', isSelected);
+    card.classList.toggle('shadow-orange-100', isSelected);
+
+    card.classList.toggle('border', !isSelected);
+    card.classList.toggle('border-slate-200', !isSelected);
+  });
+};
+
+planCards.forEach((card) => {
+  card.addEventListener('click', () => {
+    selectPlan(card.dataset.planCard);
+  });
+});
+
+selectPlan('pro');
+
+    })();
+  </script>
+  
+ 
 </body>
 </html>
