@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hrrd</title>
-  <!-- Google Fonts -->
+
+  <!-- Google Fonts: DM Sans สำหรับเนื้อหาทั่วไป -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Jost:wght@500;600;700&family=Roboto+Condensed:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
@@ -33,9 +34,21 @@
       },
     }
   </script>
+
+  <!-- โหลดฟอนต์ Circular Std จากไฟล์จริงในโฟลเดอร์ font/ -->
+  <style>
+    @font-face {
+      font-family: 'Circular Std';
+      src: url('font/circular-std-medium-500.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="font-sans antialiased text-[#3B3B3B]">
 
   <!-- ===================== Section 1  hero===================== -->
   <section id="home" class="relative overflow-hidden bg-gradient-to-b from-[#FFEDE6] via-[#FFF6F2] to-white">
@@ -580,11 +593,436 @@
   </section>
   
    
+  <!-- ===================== Section 3 (Integrations, Pricing & Testimonial) ===================== -->
+  <div>
 
-  <!-- ===================== Section 3  ===================== -->
+    <!-- Part 1 & 2: Integrations & Pricing (พื้นหลังสี #F9F9F9) -->
+    <section class="bg-[#F9F9F9] text-[#3B3B3B] pt-[60px] lg:pt-[180px] pb-[80px] lg:pb-[180px] overflow-hidden">
+      
+      <!-- Container หลัก 1420px -->
+      <div class="max-w-[1420px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-0 relative">
 
-    
-  <!-- ===================== Section 4  ===================== -->
- 
+        <!-- ================= Sub-Section: Easy to Intrigate Your Apps ================= -->
+        <div class="mb-[90px] lg:mb-[180px] relative">
+          
+          <!-- Decorative Shape: ครึ่งวงกลมสีฟ้า (แสดงทั้ง Mobile 375px และ Desktop) -->
+          <div class="absolute -top-[6px] left-[2px] sm:top-[35px] sm:-left-6 lg:top-[35px] lg:-left-16 xl:-left-24 w-[42px] h-[42px] sm:w-[65px] sm:h-[65px] lg:w-[82px] lg:h-[82px] pointer-events-none select-none z-0">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+              <path d="M 27.5 89.0 L 72.5 11.0 A 45.0 45.0 0 0 1 27.5 89.0 Z" fill="#37E0F5"/>
+            </svg>
+          </div>
+
+          <!-- Heading: Easy to Intrigate Your Apps -->
+          <div class="text-center mb-[36px] lg:mb-[70px] max-w-[650px] mx-auto relative z-10">
+            <h2 class="font-heading font-black text-[24px] sm:text-[38px] lg:text-[48px] leading-[34px] sm:leading-[48px] lg:leading-[58px] text-[#3B3B3B] [-webkit-text-stroke:0.4px_#3B3B3B]">
+              <span class="inline-block whitespace-nowrap">
+                Easy to
+                <span class="relative inline-block z-10 ml-1.5">
+                  <span class="relative z-10">Intrigate</span>
+                  <!-- กรอบสีส้มพีชพร้อมเส้นขอบ border-[#FF7342]: ล้ำซ้ายตัว I, จบหลังตัว a, ขอบล่างตัดผ่านห่วงล่างของตัว g -->
+                  <span class="absolute -left-[0.22em] right-[23.5%] top-[0.04em] bottom-[0.14em] bg-[#FF7342]/20 border border-[#FF7342] -z-10 pointer-events-none"></span>
+                </span>
+              </span>
+              <br>
+              <span class="inline-block whitespace-nowrap">Your Apps</span>
+            </h2>
+          </div>
+
+          <!-- App Logos Grid: Mobile (375px) เรียง 1 คอลัมน์, Tablet 3 คอลัมน์, Desktop 5 คอลัมน์ -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-y-[20px] sm:gap-4 lg:gap-x-[10px] lg:gap-y-[20px] justify-items-center relative z-10">
+            
+            <!-- Row 1: 1. Slack -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/slack.png" alt="Slack" class="max-h-[38px] max-w-[130px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 1: 2. Netflix -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/netflix.png" alt="Netflix" class="max-h-[34px] max-w-[120px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 1: 3. Google (Active Coral Card) -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-[#FF7342] rounded-[13px] shadow-[10px_20px_50px_rgba(81,75,75,0.2)] flex items-center justify-center p-4 hover:scale-[1.02] transition-transform duration-300">
+              <img src="asset/google.white.png" alt="Google" class="max-h-[38px] max-w-[130px] object-contain">
+            </div>
+
+            <!-- Row 1: 4. Fitbit -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/fitbit.png" alt="Fitbit" class="max-h-[34px] max-w-[120px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 1: 5. Airbnb -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/airbnb.png" alt="Airbnb" class="max-h-[38px] max-w-[130px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 2: 1. Airbnb (ซ่อนบน Mobile 375px ตามแบบ Figma) -->
+            <div class="hidden sm:flex w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/airbnb.png" alt="Airbnb" class="max-h-[38px] max-w-[130px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 2: 2. Fitbit -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/fitbit.png" alt="Fitbit" class="max-h-[34px] max-w-[120px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 2: 3. Netflix -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/netflix.png" alt="Netflix" class="max-h-[34px] max-w-[120px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 2: 4. Slack -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/slack.png" alt="Slack" class="max-h-[38px] max-w-[130px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+            <!-- Row 2: 5. Google (Grey) -->
+            <div class="w-full max-w-[276px] h-[116px] sm:h-[120px] bg-white rounded-[20px] shadow-[5px_30px_56px_rgba(55,55,55,0.11)] flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300">
+              <img src="asset/google.grey.png" alt="Google" class="max-h-[38px] max-w-[130px] object-contain opacity-70 hover:opacity-100 transition-opacity">
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= Sub-Section: Affordable Pricing ================= -->
+        <div class="relative pt-4 lg:pt-0">
+          
+          <!-- Decorative Shape: สี่เหลี่ยมสีน้ำเงินมุมมน (Mobile อยู่ขวาบนเหนือหัวข้อ / Desktop อยู่ด้านขวาของ Toggle) -->
+          <div class="absolute -top-[30px] right-[18px] sm:top-[60px] sm:-right-4 lg:top-[70px] lg:-right-16 xl:-right-20 w-[26px] sm:w-[75px] lg:w-[105px] pointer-events-none select-none z-10">
+            <img src="asset/Rectangle 740.png" alt="Decorative Shape" class="w-full h-auto drop-shadow-md">
+          </div>
+
+          <!-- Heading: Affordable Pricing -->
+          <div class="text-center mb-6 max-w-[650px] mx-auto">
+            <h2 class="font-heading font-black text-[24px] sm:text-[38px] lg:text-[48px] leading-[34px] sm:leading-[48px] lg:leading-[58px] text-[#3B3B3B] [-webkit-text-stroke:0.4px_#3B3B3B] inline-block whitespace-nowrap">
+              Affordable
+              <span class="relative inline-block z-10 ml-1.5">
+                <span class="relative z-10">Pricing</span>
+                <!-- กรอบสีส้มพีชพร้อมเส้นขอบ border-[#FF7342]: ล้ำซ้ายตัว P, ขอบขวาผ่ากลางขาขวาของตัว n, และยกขอบล่างให้รับกับฐาน Pricin -->
+                <span class="absolute -left-[0.24em] right-[25.5%] top-[0.04em] bottom-[0.12em] bg-[#FF7342]/20 border border-[#FF7342] -z-10 pointer-events-none"></span>
+              </span>
+            </h2>
+          </div>
+
+          <!-- Billing Toggle (Monthly / Anually) -->
+          <div class="flex items-center justify-center gap-3 sm:gap-4 mb-[45px] lg:mb-[60px] select-none">
+            <span id="monthly-label" class="cursor-pointer text-[16px] sm:text-[20px] leading-[32px] text-[#333333] font-medium transition-colors duration-200">
+              Monthly
+            </span>
+            
+            <button 
+              id="pricing-toggle-btn" 
+              type="button" 
+              role="switch"
+              aria-checked="true"
+              aria-label="Toggle Billing Frequency" 
+              class="w-[78px] sm:w-[90px] h-[36px] sm:h-[41px] bg-[#FF7342] rounded-full p-1 sm:p-[6px] relative cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#FF7342]/40"
+            >
+              <span 
+                id="toggle-knob" 
+                class="block w-[28px] sm:w-[29px] h-[28px] sm:h-[29px] bg-white rounded-full shadow-md transform translate-x-[42px] sm:translate-x-[49px] transition-transform duration-300 ease-in-out"
+              ></span>
+            </button>
+            
+            <span id="anually-label" class="cursor-pointer text-[16px] sm:text-[20px] leading-[32px] text-[#5A7184] font-normal transition-colors duration-200">
+              Anually
+            </span>
+          </div>
+
+          <!-- 3 Pricing Cards Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-[30px] items-stretch justify-center max-w-[1420px] mx-auto relative z-10">
+            
+            <!-- Card 1: Free Plan -->
+            <div class="w-full max-w-[335px] sm:max-w-[453.33px] min-h-[490px] sm:min-h-[536px] mx-auto bg-white rounded-[15px] p-7 sm:p-10 lg:p-[50px] flex flex-col justify-between transition-all duration-300">
+              <div>
+                <h3 class="font-heading font-bold text-[22px] sm:text-[24px] leading-[32px] text-[#3B3B3B] mb-2">Free Plan</h3>
+                <div class="flex items-baseline gap-2 mb-6">
+                  <span class="font-heading font-black text-[42px] sm:text-[48px] leading-[58px] text-[#3B3B3B]">$0</span>
+                  <span class="text-[15px] sm:text-[16px] leading-[26px] text-[#5A7184]">/ month</span>
+                </div>
+
+                <div class="w-full h-[1.5px] bg-[#F5F6FA] mb-6"></div>
+
+                <ul class="space-y-[18px] mb-8">
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Access to editing all blocks</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Editing blocks together</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Access to all premium icons</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">A dedicated domain</span>
+                  </li>
+                </ul>
+              </div>
+
+              <button class="w-full h-[58px] sm:h-[64px] bg-[#FFD167] text-white font-bold text-[16px] leading-[21px] rounded-[4px] hover:bg-[#ffc84d] transition-colors duration-200 flex items-center justify-center">
+                Try for Free
+              </button>
+            </div>
+
+            <!-- Card 2: Premium Plan (Elevated Shadow) -->
+            <div class="w-full max-w-[335px] sm:max-w-[453.33px] min-h-[490px] sm:min-h-[536px] mx-auto bg-white rounded-[15px] p-7 sm:p-10 lg:p-[50px] flex flex-col justify-between shadow-[0px_54px_50px_rgba(67,67,68,0.071)] relative z-10 transition-all duration-300">
+              <div>
+                <h3 class="font-heading font-bold text-[22px] sm:text-[24px] leading-[32px] text-[#3B3B3B] mb-2">Premium Plan</h3>
+                <div class="flex items-baseline gap-2 mb-6">
+                  <span id="price-premium" class="font-heading font-black text-[42px] sm:text-[48px] leading-[58px] text-[#3B3B3B] transition-all duration-200">$199</span>
+                  <span id="period-premium" class="text-[15px] sm:text-[16px] leading-[26px] text-[#5A7184] transition-all duration-200">/ year</span>
+                </div>
+
+                <div class="w-full h-[1.5px] bg-[#F5F6FA] mb-6"></div>
+
+                <ul class="space-y-[18px] mb-8">
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Access to editing all blocks</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Editing blocks together</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Access to all premium icons</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">A dedicated domain</span>
+                  </li>
+                </ul>
+              </div>
+
+              <button class="w-full h-[58px] sm:h-[64px] bg-[#FF7342] text-white font-bold text-[16px] leading-[21px] rounded-[4px] hover:bg-[#f0612f] transition-colors duration-200 flex items-center justify-center">
+                Try for Free
+              </button>
+            </div>
+
+            <!-- Card 3: Business Plan -->
+            <div class="w-full max-w-[335px] sm:max-w-[453.33px] min-h-[490px] sm:min-h-[536px] mx-auto bg-white rounded-[15px] p-7 sm:p-10 lg:p-[50px] flex flex-col justify-between transition-all duration-300">
+              <div>
+                <h3 class="font-heading font-bold text-[22px] sm:text-[24px] leading-[32px] text-[#3B3B3B] mb-2">Business Plan</h3>
+                <div class="flex items-baseline gap-2 mb-6">
+                  <span id="price-business" class="font-heading font-black text-[42px] sm:text-[48px] leading-[58px] text-[#3B3B3B] transition-all duration-200">$299</span>
+                  <span id="period-business" class="text-[15px] sm:text-[16px] leading-[26px] text-[#5A7184] transition-all duration-200">/ year</span>
+                </div>
+
+                <div class="w-full h-[1.5px] bg-[#F5F6FA] mb-6"></div>
+
+                <ul class="space-y-[18px] mb-8">
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Access to editing all blocks</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Editing blocks together</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">Access to all premium icons</span>
+                  </li>
+                  <li class="flex items-center gap-3.5">
+                    <span class="w-[28px] h-[28px] rounded-full bg-[#FF7342]/10 flex items-center justify-center flex-shrink-0">
+                      <svg class="w-3.5 h-2.5 text-[#FF7342]" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 5l4 4L13 1"/>
+                      </svg>
+                    </span>
+                    <span class="text-[15px] sm:text-[16px] leading-[28px] text-[#5A7184]">A dedicated domain</span>
+                  </li>
+                </ul>
+              </div>
+
+              <button class="w-full h-[58px] sm:h-[64px] bg-[#FFD167] text-white font-bold text-[16px] leading-[21px] rounded-[4px] hover:bg-[#ffc84d] transition-colors duration-200 flex items-center justify-center">
+                Try for Free
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Part 3: Testimonials Section (พื้นหลังสีขาว #FFFFFF) -->
+    <section class="bg-white text-[#3B3B3B] py-[60px] lg:py-[100px] overflow-hidden">
+      <div class="max-w-[1420px] mx-auto px-6 sm:px-8 xl:px-0">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          
+          <!-- Column 1: Quote Text, Author & Arrows (Mobile อยู่ด้านล่าง order-2 / Desktop อยู่ด้านซ้าย lg:order-1) -->
+          <div class="order-2 lg:order-1 lg:col-span-7 max-w-[695px]">
+            <p class="font-heading font-black text-[20px] sm:text-[26px] lg:text-[30px] leading-[40px] sm:leading-[48px] lg:leading-[60px] text-[#3B3B3B] mb-6 lg:mb-8">
+              “I’ve downloaded Hrrd from my Google Play about 1 years ago. This make the prototype process so easy and faster. I feel this is the best apps for Prototyping<span class="hidden sm:inline"> use</span>”
+            </p>
+
+            <p class="text-[14px] sm:text-[18px] leading-[24px] text-[#5A7184] mb-8 lg:mb-12">
+              — Ferdinand &nbsp;- Co Founder of CocoPay
+            </p>
+
+            <!-- Navigation Controls -->
+            <div class="flex items-center gap-[30px]">
+              <button type="button" aria-label="Previous Testimonial" class="text-[#FF7342] hover:opacity-80 transition-opacity focus:outline-none">
+                <svg class="w-[42px] sm:w-[48px] h-[24px]" viewBox="0 0 46 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M44 12H2M2 12L12 2M2 12L12 22" stroke="#FF7342" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+
+              <button type="button" aria-label="Next Testimonial" class="text-[#3B3B3B] hover:opacity-80 transition-opacity focus:outline-none">
+                <svg class="w-[30px] sm:w-[34px] h-[20px]" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 10H30M30 10L22 2M30 10L22 18" stroke="#3B3B3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Column 2: วงกลมสีฟ้าและเส้นวงแหวน (Mobile อยู่ด้านบน order-1 / Desktop อยู่ด้านขวา lg:order-2) -->
+          <div class="order-1 lg:order-2 lg:col-span-5 relative flex items-center justify-center lg:justify-end">
+            
+            <div class="relative w-[275px] sm:w-[420px] lg:w-[500px] xl:w-[550px] aspect-square my-4 lg:my-0">
+              
+              <!-- เส้นวงแหวนที่ 1 (Ellipse 975) -->
+              <div class="absolute w-[105.1%] h-[105.1%] -top-[9.1%] -left-[3.8%] rounded-full border border-[#37E0F5] pointer-events-none select-none z-0"></div>
+
+              <!-- เส้นวงแหวนที่ 2 (Ellipse 976) -->
+              <div class="absolute w-[105.1%] h-[105.1%] -top-[5.1%] left-[10.0%] rounded-full border border-[#37E0F5] pointer-events-none select-none z-0"></div>
+
+              <!-- วงกลมสีฟ้า Solid Cyan (Ellipse 981) -->
+              <div class="w-full h-full rounded-full bg-[#37E0F5] relative shadow-sm z-10"></div>
+
+              <!-- เครื่องหมายคำพูดคู่ (quote-left.png) ขอบล่างซ้าย -->
+              <div class="absolute top-[85.4%] left-[22.2%] -translate-x-1/2 -translate-y-1/2 z-20 w-[46px] sm:w-[70px] lg:w-[86px]">
+                <img src="asset/quote-left.png" alt="Quote Icon" class="w-full h-auto object-contain">
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===================== Section 4 ===================== -->
+
+  <!-- JavaScript ควบคุมปุ่ม Toggle ราคา -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleBtn = document.getElementById('pricing-toggle-btn');
+      const toggleKnob = document.getElementById('toggle-knob');
+      const monthlyLabel = document.getElementById('monthly-label');
+      const anuallyLabel = document.getElementById('anually-label');
+
+      const pricePremium = document.getElementById('price-premium');
+      const periodPremium = document.getElementById('period-premium');
+      const priceBusiness = document.getElementById('price-business');
+      const periodBusiness = document.getElementById('period-business');
+
+      let isAnually = true;
+
+      function updatePricingUI() {
+        if (isAnually) {
+          toggleKnob.classList.remove('translate-x-0');
+          toggleKnob.classList.add('translate-x-[42px]', 'sm:translate-x-[49px]');
+
+          pricePremium.textContent = '$199';
+          periodPremium.textContent = '/ year';
+          priceBusiness.textContent = '$299';
+          periodBusiness.textContent = '/ year';
+
+          toggleBtn.setAttribute('aria-checked', 'true');
+        } else {
+          toggleKnob.classList.remove('translate-x-[42px]', 'sm:translate-x-[49px]');
+          toggleKnob.classList.add('translate-x-0');
+
+          pricePremium.textContent = '$19';
+          periodPremium.textContent = '/ month';
+          priceBusiness.textContent = '$29';
+          periodBusiness.textContent = '/ month';
+
+          toggleBtn.setAttribute('aria-checked', 'false');
+        }
+      }
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function () {
+          isAnually = !isAnually;
+          updatePricingUI();
+        });
+      }
+
+      if (monthlyLabel) {
+        monthlyLabel.addEventListener('click', function () {
+          if (isAnually) {
+            isAnually = false;
+            updatePricingUI();
+          }
+        });
+      }
+
+      if (anuallyLabel) {
+        anuallyLabel.addEventListener('click', function () {
+          if (!isAnually) {
+            isAnually = true;
+            updatePricingUI();
+          }
+        });
+      }
+    });
+  </script>
+   
 </body>
 </html>
